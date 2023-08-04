@@ -1,20 +1,10 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
   "compilerOptions": {
-    "baseUrl": ".",
     "types": [
       "@nuxt/types",
-      "@nuxtjs/i18n",
+      "@nuxtjs/i18n"
     ],
-    "paths": {
-      "@Shared/*": ["shared/*"]
-    }
   },
-  "removeComments": true,
-  "noUnusedLocals": false,
-  "noUnusedParameters": false,
-  "noImplicitReturns": true,
-  "allowJs": true,
-  "include": ["shared/**/*.ts",],
   "extends": "./.nuxt/tsconfig.json"
 }

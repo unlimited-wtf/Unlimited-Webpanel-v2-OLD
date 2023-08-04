@@ -1,13 +1,5 @@
 <template>
-    <div>
-        {{ $t('welcome') }}
-        {{ status }}
-        {{ data }}
-
-        <button @click="signIn">Login</button>
-    </div>
+    <NuxtLayout>
+        <NuxtPage />
+    </NuxtLayout>
 </template>
-
-<script setup>
-const { status, data, signIn, signOut } = useAuth();
-</script>
