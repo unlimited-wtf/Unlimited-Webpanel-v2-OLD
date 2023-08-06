@@ -4,8 +4,9 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 definePageMeta({
+    layout: 'full',
     auth: {
         unauthenticatedOnly: true,
         navigateAuthenticatedTo: '/'
