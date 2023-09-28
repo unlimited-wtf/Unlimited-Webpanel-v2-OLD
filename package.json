@@ -1,36 +1,38 @@
 {
-  "name": "unlimited-website",
-  "author": "Marco Sendner",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/types": "^2.17.1",
-    "@nuxtjs/i18n": "^8.0.0-rc.2",
-    "@sidebase/nuxt-auth": "^0.6.0-beta.3",
-    "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5",
-    "nuxt-quasar-ui": "^2.0.5",
-    "sass": "^1.64.2"
-  },
-  "dependencies": {
-    "@quasar/extras": "^1.16.5",
-    "magic-regexp": "^0.7.0",
-    "quasar": "^2.12.3"
-  },
-  "prettier": {
-    "tabWidth": 4,
-    "printWidth": 120,
-    "singleQuote": true,
-    "semi": true,
-    "arrowParens": "always",
-    "trailingComma": "none"
-  }
+    "name": "unlimited-website",
+    "author": "Marco Sendner",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt dev",
+        "generate": "nuxt generate",
+        "preview": "nuxt preview",
+        "postinstall": "nuxt prepare"
+    },
+    "devDependencies": {
+        "@nuxt/devtools": "latest",
+        "@nuxt/types": "^2.17.1",
+        "@nuxtjs/i18n": "^8.0.0-rc.2",
+        "@sidebase/nuxt-auth": "^0.6.0-beta.3",
+        "@types/node": "^18.17.1",
+        "nuxt": "^3.7.4",
+        "nuxt-quasar-ui": "^2.0.5",
+        "sass": "^1.68.0"
+    },
+    "dependencies": {
+        "@quasar/extras": "^1.16.5",
+        "magic-regexp": "^0.7.0",
+        "mysql2": "^3.6.0",
+        "quasar": "^2.12.3",
+        "winston": "^3.10.0"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "printWidth": 120,
+        "singleQuote": true,
+        "semi": true,
+        "arrowParens": "always",
+        "trailingComma": "none"
+    }
 }
