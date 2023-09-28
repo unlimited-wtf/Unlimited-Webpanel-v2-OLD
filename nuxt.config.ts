@@ -24,7 +24,8 @@ export default defineNuxtConfig({
     },
     alias: {
         '@': fileURLToPath(new URL('./', import.meta.url)),
-        '@Database': fileURLToPath(new URL('./server/database', import.meta.url))
+        '@Database': fileURLToPath(new URL('./server/database', import.meta.url)),
+        '@Server': fileURLToPath(new URL('./server', import.meta.url))
     },
     runtimeConfig: {
         accessToken: process.env.ACCESS_TOKEN,

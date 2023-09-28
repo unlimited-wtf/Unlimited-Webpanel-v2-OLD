@@ -15,5 +15,19 @@ export default NuxtAuthHandler({
             clientSecret: process.env.DISCORD_CLIENT_SECRET,
             authorization: { params: { scope: scopes } }
         })
-    ]
+    ],
+    callbacks: {
+        async jwt({ token, account, profile }) {
+            if (account) {
+                (token as any).uid = (profile as any).id;
+            }
+
+            return token;
+        },
+        session: async ({ session, token }) => {
+            console.log(`Token: ${JSON.stringify(token)}`);
+
+            return Promise.resolve(session);
+        }
+    }
 });
