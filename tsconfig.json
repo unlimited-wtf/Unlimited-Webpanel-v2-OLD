@@ -3,8 +3,10 @@
   "compilerOptions": {
     "types": [
       "@nuxt/types",
-      "@nuxtjs/i18n"
+      "@nuxtjs/i18n",
+      "@types/node"
     ],
+    "moduleResolution": "node",
   },
   "extends": "./.nuxt/tsconfig.json"
 }
