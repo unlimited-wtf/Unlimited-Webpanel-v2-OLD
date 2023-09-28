@@ -74,7 +74,6 @@
                                     </q-item-section>
                                     <q-item-section>
                                         <q-item-label>{{ data.user.name }}</q-item-label>
-                                        <q-item-label caption class="text-accent">Admin</q-item-label>
                                     </q-item-section>
                                 </q-item>
 
