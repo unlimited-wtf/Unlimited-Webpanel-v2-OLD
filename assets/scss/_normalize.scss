@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./assets/fonts/Montserrat.woff2) format('woff2');
+}
+
+body {
+    background-color: $background;
+    color: $secondary;
+    margin: 0;
+}
+
+* {
+    font-family: 'Montserrat';
+    color: $secondary !important;
+}

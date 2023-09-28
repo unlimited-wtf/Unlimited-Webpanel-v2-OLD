@@ -1,0 +1,27 @@
+:root {
+    --unlimited: #{$unlimited};
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --background: #{$background};
+    --background2: #{$background2};
+    --accent: #{$accent};
+    --positive: #{$positive};
+    --negative: #{$negative};
+    --info: #{$info};
+    --warning: #{$warning};
+    --white: #{$white};
+    --black: #{$black};
+    --purple: #{$purple};
+    --orange: #{$orange};
+    --blue: #{$blue};
+    --green: #{$green};
+    --red: #{$red};
+}
+
+.bg {
+    background-color: $background !important;
+}
+
+.bg2 {
+    background-color: $background2 !important;
+}
