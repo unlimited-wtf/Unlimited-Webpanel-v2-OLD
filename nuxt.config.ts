@@ -1,10 +1,11 @@
+import { fileURLToPath } from 'url';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
     app: {
         head: {
             charset: 'utf-16',
-            title: 'Unlimited - Webpanel',
             htmlAttrs: {
                 lang: 'en'
             },
@@ -21,13 +22,26 @@ export default defineNuxtConfig({
     imports: {
         dirs: ['./stores']
     },
-    runtimeConfig: {},
+    alias: {
+        '@': fileURLToPath(new URL('./', import.meta.url)),
+        '@Database': fileURLToPath(new URL('./server/database', import.meta.url))
+    },
+    runtimeConfig: {
+        accessToken: process.env.ACCESS_TOKEN,
+        discordMasterId: process.env.DISCORD_MASTER_ID,
+        mysqlConnectionString: process.env.MYSQL_CONNECTION_STRING,
+
+        public: {
+            siteTitle: process.env.SITE_TITLE,
+            serverName: process.env.SERVER_NAME
+        }
+    },
     quasar: {
         plugins: ['Notify', 'Dialog'],
         extras: {
             fontIcons: ['material-icons', 'material-icons-outlined', 'fontawesome-v6']
         },
-        sassVariables: 'assets/styles/quasar-variables.sass'
+        sassVariables: 'assets/scss/template.scss'
     },
     i18n: {
         locales: [
