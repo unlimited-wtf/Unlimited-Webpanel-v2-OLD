@@ -1,5 +1,5 @@
 import { createPool, Pool } from 'mysql2/promise';
-import { logServerError, logServerInfo } from '@/server/utils/log';
+import { logServerError, logServerInfo } from '~/server/misc/log';
 
 function getDatabasePool(): Pool {
     try {
