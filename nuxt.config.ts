@@ -61,7 +61,5 @@ export default defineNuxtConfig({
         langDir: 'lang/',
         defaultLocale: 'en'
     },
-    auth: {
-        enableGlobalAppMiddleware: true
-    }
+    auth: { baseURL: process.env.AUTH_ORIGIN, globalAppMiddleware: true }
 });
