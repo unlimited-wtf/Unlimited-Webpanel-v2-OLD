@@ -19,7 +19,7 @@
                     <div class="q-pt-lg">
                         <div class="col text-h6 text-center flex justify-center">
                             <div class="text-h4 text-uppercase text-primary q-my-none text-weight-regular">
-                                {{ $t('components.login.title') }}
+                                {{ $t('login.title') }}
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                 <!-- subtitle -->
                 <q-card-section>
                     <div class="text-center text-subtitle1 text-secondary">
-                        {{ $t('components.login.subtitle') }}
+                        {{ $t('login.subtitle') }}
                     </div>
                 </q-card-section>
 
@@ -39,10 +39,10 @@
                         v-bind:class="{
                             'full-width': $q.screen.md || $q.screen.sm || $q.screen.xs
                         }"
-                        :label="$t('login')"
+                        :label="$t('login.btn')"
                         type="submit"
                         icon="discord"
-                        @click="signIn('discord', { callbackUrl: '/', redirect: true })"
+                        @click="signIn('discord', { callbackUrl: '/ucp', redirect: true })"
                     />
                 </q-card-section>
             </q-card>
@@ -52,12 +52,17 @@
 
 <script setup>
 definePageMeta({
-    layout: 'full',
     auth: {
         unauthenticatedOnly: true,
-        navigateAuthenticatedTo: '/'
+        navigateAuthenticatedTo: '/ucp'
     }
 });
 
 const { signIn } = useAuth();
 </script>
+
+<style lang="scss" scoped>
+* {
+    font-family: $font-montserrat;
+}
+</style>

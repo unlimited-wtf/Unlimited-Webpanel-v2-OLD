@@ -3,4 +3,40 @@
     &unlimited {
         color: $unlimited !important;
     }
+
+    &landing-header {
+        font-family: $font-drukcyr-medium;
+        font-size: 96px;
+        line-height: 100px;
+
+        .prominent {
+            background: radial-gradient(63.93% 63.93% at 50% 50%, $primary 0%, rgba(7, 224, 230, 0) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            position: relative;
+
+            &:after {
+                content: attr(data-text);
+                -webkit-text-stroke: 0.5px $primary;
+                color: $primary;
+                position: absolute;
+                left: 0;
+                top: 11px;
+            }
+        }
+    }
+
+    // size
+    &landing-subtitle {
+        font-size: 20px;
+        line-height: 46px;
+    }
+
+    &landing-subtitle2 {
+        font-size: 14px;
+        line-height: 32px;
+        color: rgba(255, 255, 255, 0.5);
+    }
 }

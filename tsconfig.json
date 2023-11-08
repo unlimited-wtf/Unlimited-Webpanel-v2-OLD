@@ -6,7 +6,6 @@
       "@nuxtjs/i18n",
       "@types/node"
     ],
-    "moduleResolution": "node",
   },
   "extends": "./.nuxt/tsconfig.json"
 }

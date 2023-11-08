@@ -1,5 +1,5 @@
 import { NuxtAuthHandler } from '#auth';
-import DiscordProvider from 'next-auth/providers/discord';
+import DiscordProvider, { DiscordProfile } from 'next-auth/providers/discord';
 
 const scopes = ['identify'].join(' ');
 
@@ -17,16 +17,15 @@ export default NuxtAuthHandler({
         })
     ],
     callbacks: {
-        async jwt({ token, account, profile }) {
-            if (account) {
-                (token as any).uid = (profile as any).id;
+        async jwt({ token, user }) {
+            const isSignIn = user ? true : false;
+            if (isSignIn) {
+                (token as any).uid = (user as DiscordProfile).id;
             }
 
-            return token;
+            return Promise.resolve(token);
         },
-        session: async ({ session, token }) => {
-            console.log(`Token: ${JSON.stringify(token)}`);
-
+        session: async ({ session /* token */ }) => {
             return Promise.resolve(session);
         }
     }

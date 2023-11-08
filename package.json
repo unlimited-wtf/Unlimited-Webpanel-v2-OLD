@@ -21,6 +21,8 @@
         "sass": "^1.68.0"
     },
     "dependencies": {
+        "@casl/ability": "^6.5.0",
+        "@fullpage/nuxt-fullpage": "^0.2.5",
         "@quasar/extras": "^1.16.5",
         "magic-regexp": "^0.7.0",
         "mysql2": "^3.6.0",

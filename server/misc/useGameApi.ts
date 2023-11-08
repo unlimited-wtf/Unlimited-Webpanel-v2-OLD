@@ -14,13 +14,12 @@ export default async (event: H3Event, url: string) => {
         const response = await $fetch.raw(url, {
             // @ts-ignore
             method,
-            baseURL: config.apiBaseUrl,
+            baseURL: `${config.apiBaseUrl}/unlimited-api/`,
             headers: {
                 'content-type': 'application/json',
-                'authorization': `${config.accessToken}`
-                
+                authorization: `${config.accessToken}`
             },
-            body: {...body}
+            body: { ...body }
         });
 
         for (const header of ['set-cookie', 'cache-control']) {

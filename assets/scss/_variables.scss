@@ -1,3 +1,42 @@
+// breakpoints
+$breakpoint-xs: 599px !default;
+$breakpoint-sm: 1023px !default;
+$breakpoint-md: 1439px !default;
+$breakpoint-lg: 1919px !default;
+$breakpoint-xl: 2159px !default;
+
+$sizes: (
+    'xs': 0,
+    'sm': (
+        $breakpoint-xs + 1
+    ),
+    'md': (
+        $breakpoint-sm + 1
+    ),
+    'lg': (
+        $breakpoint-md + 1
+    ),
+    'xl': (
+        $breakpoint-lg + 1
+    ),
+    'xxl': (
+        $breakpoint-xl + 1
+    )
+) !default;
+
+@mixin breakpoint($size) {
+    @media (min-width: #{map-get($sizes, $size)}) {
+        @content;
+    }
+}
+
+// fonts
+$font-drukcyr-medium: 'DrukCyr-Medium';
+$font-gilroy-medium: 'Gilroy-Medium';
+$font-gilroy-bold: 'Gilroy-Bold';
+$font-montserrat: 'Montserrat';
+
+// colors
 $unlimited: #7367f0 !default;
 
 $primary: #7367f0 !default;

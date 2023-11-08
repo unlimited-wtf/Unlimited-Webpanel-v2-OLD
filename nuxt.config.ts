@@ -2,8 +2,12 @@ import { fileURLToPath } from 'url';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    nitro: {
+        preset: 'cloudflare'
+    },
     devtools: { enabled: true },
     app: {
+        pageTransition: { name: 'page', mode: 'out-in' },
         head: {
             charset: 'utf-16',
             htmlAttrs: {
@@ -18,7 +22,7 @@ export default defineNuxtConfig({
             ]
         }
     },
-    modules: ['magic-regexp/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth', 'nuxt-quasar-ui'],
+    modules: ['magic-regexp/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth', 'nuxt-quasar-ui', '@fullpage/nuxt-fullpage'],
     imports: {
         dirs: ['./stores']
     },
@@ -35,7 +39,10 @@ export default defineNuxtConfig({
 
         public: {
             siteTitle: process.env.SITE_TITLE,
-            serverName: process.env.SERVER_NAME
+            serverName: process.env.SERVER_NAME,
+            discordUrl: process.env.DISCORD_URL,
+            discordInvCode: process.env.DISCORD_INV_CODE,
+            fivemJoinUrl: process.env.FIVEM_JOIN_URL
         }
     },
     quasar: {
