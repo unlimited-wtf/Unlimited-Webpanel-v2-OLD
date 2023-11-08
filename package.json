@@ -17,7 +17,7 @@
         "@nuxt/devtools": "latest",
         "@nuxt/types": "^2.17.1",
         "@nuxtjs/i18n": "^8.0.0-rc.2",
-        "@sidebase/nuxt-auth": "^0.6.0-beta.3",
+        "@sidebase/nuxt-auth": "^0.6.0-rc.1",
         "@types/node": "^18.17.1",
         "nuxt": "^3.7.4",
         "nuxt-quasar-ui": "^2.0.5",
