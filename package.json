@@ -8,7 +8,10 @@
         "dev": "nuxt dev",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
-        "postinstall": "nuxt prepare"
+        "postinstall": "nuxt prepare",
+        "pages:build": "NITRO_PRESET=cloudflare-pages nuxt build",
+        "pages:dev": "wrangler pages dev --compatibility-date=2023-10-30 --proxy 3000 -- npm run dev",
+        "pages:deploy": "npm run build && wrangler pages deploy ./dist"
     },
     "devDependencies": {
         "@nuxt/devtools": "latest",
@@ -18,7 +21,8 @@
         "@types/node": "^18.17.1",
         "nuxt": "^3.7.4",
         "nuxt-quasar-ui": "^2.0.5",
-        "sass": "^1.68.0"
+        "sass": "^1.68.0",
+        "wrangler": "^3.15.0"
     },
     "dependencies": {
         "@casl/ability": "^6.5.0",
