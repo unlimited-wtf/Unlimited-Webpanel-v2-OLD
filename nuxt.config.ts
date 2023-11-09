@@ -15,7 +15,30 @@ export default defineNuxtConfig({
                 { name: 'revisit-after', content: '10 days' },
                 { name: 'robots', content: 'follow' },
                 { name: 'robots', content: 'index' },
-                { name: 'page-topic', content: 'Webpanel, GTAV, FiveM' }
+                { name: 'page-topic', content: 'Webpanel, GTAV, FiveM' },
+
+                // og
+                { hid: 'og-type', property: 'og:type', content: 'website' },
+                {
+                    hid: 'og-title',
+                    property: 'og:title',
+                    content: 'Unlimited v2 - Preview'
+                },
+                {
+                    hid: 'og-desc',
+                    property: 'og:description',
+                    content: 'Checkout the current state of v2. This page will be updated frequently.'
+                },
+                {
+                    hid: 'og-image',
+                    property: 'og:image',
+                    content: 'https://preview.unlimited.wtf/logo.png'
+                },
+                {
+                    hid: 'og-url',
+                    property: 'og:url',
+                    content: 'https://preview.unlimited.wtf'
+                }
             ]
         }
     },
