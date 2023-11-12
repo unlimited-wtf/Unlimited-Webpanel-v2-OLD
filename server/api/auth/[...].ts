@@ -23,9 +23,13 @@ export default NuxtAuthHandler({
                 (token as any).uid = (user as DiscordProfile).id;
             }
 
+            (token as any).isMaster = token.uid == process.env.DISCORD_MASTER_ID;
+
             return Promise.resolve(token);
         },
-        session: async ({ session /* token */ }) => {
+        session: async ({ session, token }) => {
+            (session as any).isMaster = token.isMaster;
+
             return Promise.resolve(session);
         }
     }
