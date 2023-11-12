@@ -2,7 +2,7 @@ import { dbPool } from './pool';
 
 class _MYSQL {
     public async query<T = unknown>(query: string, fields?: any[]): Promise<T> {
-        const [data] = await dbPool.query(query, fields);
+        const [data] = await dbPool.execute(query, fields);
 
         return <T>data;
     }
