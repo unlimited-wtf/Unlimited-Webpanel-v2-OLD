@@ -59,14 +59,17 @@ export default defineNuxtConfig({
     i18n: {
         locales: [
             {
-                code: 'en',
+                code: 'en-GB',
+                name: 'English',
+                iso: 'en-GB',
+                dir: "ltr",
                 file: 'en.json',
-                name: 'English'
             }
         ],
         lazy: true,
         langDir: 'lang/',
-        defaultLocale: 'en'
+        detectBrowserLanguage: false,
+        defaultLocale: 'en-GB'
     },
     auth: {
         baseURL: process.env.AUTH_ORIGIN,
