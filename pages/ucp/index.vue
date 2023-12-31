@@ -8,7 +8,7 @@
 
 <script setup>
 definePageMeta({
-    layout: 'layout-vertical'
+    layout: 'ucp'
 });
 
 const { status, data } = useAuth();

@@ -29,6 +29,7 @@ export default NuxtAuthHandler({
         },
         session: async ({ session, token }) => {
             (session as any).isMaster = token.isMaster;
+            (session as any).uid = token.uid;
 
             return Promise.resolve(session);
         }

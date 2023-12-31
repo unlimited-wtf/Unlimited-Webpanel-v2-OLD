@@ -1,23 +1,15 @@
-import { NavigationItem } from '@/types/navigation';
+import type { NavigationItem } from '@/types/navigation';
 
 export const useNavigation = () => {
     const navigation: NavigationItem[] = [
         {
-            title: 'Test',
-            action: 'Action:Test',
-            subject: 'Subject:Test'
+            title: 'test',
+            action: 'delete',
+            subject: 'subject:test'
         }
     ];
 
-    const resolveVerticalNavMenuItemComponent = (item: NavigationItem) => {
-        if (item.header) return 'vertical-nav-menu-header'
-        if (item.children) return 'vertical-nav-menu-group'
-        
-        return 'vertical-nav-menu-link'
-      }
-
     return {
-        navigation,
-        resolveVerticalNavMenuItemComponent
+        navigation
     };
 };

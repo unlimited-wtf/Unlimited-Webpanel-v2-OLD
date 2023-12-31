@@ -1,14 +1,14 @@
 export type NavigationHeaderChild = {
-    action: String;
-    subject: String;
+    action: string;
+    subject: string;
 };
 
 export interface NavigationItem {
-    title: String;
-    action: String;
-    subject: String;
-    header?: String;
-    icon?: String;
-    route?: String;
+    title: string;
+    action: string;
+    subject: string;
+    header?: string;
+    icon?: string;
+    route?: string;
     children?: NavigationHeaderChild[];
 }
