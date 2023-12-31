@@ -19,7 +19,14 @@ export default defineNuxtConfig({
             ]
         }
     },
-    modules: ['magic-regexp/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth', 'nuxt-quasar-ui', '@fullpage/nuxt-fullpage'],
+    modules: [
+        'magic-regexp/nuxt',
+        '@nuxtjs/i18n',
+        '@sidebase/nuxt-auth',
+        'nuxt-quasar-ui',
+        '@fullpage/nuxt-fullpage',
+        '@pinia/nuxt'
+    ],
     imports: {
         dirs: ['./stores']
     },
