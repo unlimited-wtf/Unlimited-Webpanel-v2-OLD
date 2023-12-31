@@ -42,7 +42,7 @@ import { ability } from '~/plugins/ability.client';
 const config = useRuntimeConfig();
 const { leftDrawerOpen } = useLayout();
 const { navigation } = useNavigation();
-const { status, data } = useAuth();
+const { status } = useAuth();
 
 const UcpNavMenuLink = resolveComponent('LayoutUcpNavMenuLink');
 const UcpNavMenuGroup = resolveComponent('LayoutUcpNavMenuGroup');
