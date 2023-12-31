@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NavigationItem } from '@/types/navigation';
+import type { NavigationItem } from '@/composables/useNavigation';
 import type { SubjectRawRule, MongoQuery } from '@casl/ability';
 import { ability } from '~/plugins/ability.client';
 const config = useRuntimeConfig();

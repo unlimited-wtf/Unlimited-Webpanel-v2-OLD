@@ -1,11 +1,11 @@
 import MYSQL from '../database';
 import { getServerSession } from '#auth';
-import { ServerSession } from '~/types/session';
+import { UserSession } from './auth/[...]';
 
 export default defineEventHandler(async (event) => {
     // toDo: Funktion sicherer machen und Defaults zurückgeben
 
-    const session = (await getServerSession(event)) as ServerSession | null;
+    const session = (await getServerSession(event)) as UserSession | null;
 
     if (!session) return [];
 

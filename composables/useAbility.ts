@@ -1,6 +1,6 @@
 import { ability } from '~/plugins/ability.client';
 
-import type { NavigationItem } from '~/types/navigation';
+import type { NavigationItem } from '~/composables/useNavigation';
 
 export const useAbility = () => {
     const { data } = useAuth();

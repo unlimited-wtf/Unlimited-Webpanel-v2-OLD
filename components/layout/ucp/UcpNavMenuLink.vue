@@ -10,8 +10,8 @@
         <q-item-section avatar>
             <q-icon
                 :color="$route.matched.some((route) => route.name === props.item.route) ? 'primary' : 'main'"
-                size="sm"
-                :name="props.item.icon || 'mdi-adjust'"
+                size="10px"
+                :name="props.item.icon || 'far fa-circle'"
             />
         </q-item-section>
         <q-item-section
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NavigationItem } from '@/types/navigation';
+import type { NavigationItem } from '@/composables/useNavigation';
 const { canViewUcpNavMenuLink } = useAbility();
 
 const props = defineProps<{
@@ -34,6 +34,6 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .active-sidebar-element {
-    background: rgba(var(--q-primary), 0.15);
+    background-color: rgba($primary, 0.25);
 }
 </style>
