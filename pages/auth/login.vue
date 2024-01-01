@@ -27,7 +27,7 @@
 
                 <!-- subtitle -->
                 <q-card-section>
-                    <div class="text-center text-subtitle1 text-secondary">
+                    <div class="text-center text-subtitle1">
                         {{ $t('login.subtitle') }}
                     </div>
                 </q-card-section>
@@ -63,6 +63,7 @@ const { signIn } = useAuth();
 
 <style lang="scss" scoped>
 * {
-    font-family: $font-montserrat;
+    font-family: $font-public-sans;
+    color: $font;
 }
 </style>

@@ -68,6 +68,8 @@ const resolveUcpNavMenuItemComponent = (item: NavigationItem) => {
 
 <style lang="scss" scoped>
 * {
-    font-family: $font-montserrat;
+    font-family: $font-public-sans;
+    color: $font;
+    font-size: 1rem;
 }
 </style>
