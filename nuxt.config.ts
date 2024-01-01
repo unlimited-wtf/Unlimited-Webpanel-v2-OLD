@@ -52,7 +52,7 @@ export default defineNuxtConfig({
     quasar: {
         plugins: ['Notify', 'Dialog'],
         extras: {
-            fontIcons: ['material-icons', 'material-icons-outlined', 'fontawesome-v6']
+            fontIcons: ['material-icons', 'material-icons-outlined', 'fontawesome-v6', 'mdi-v7', 'line-awesome'],
         },
         sassVariables: 'assets/scss/template.scss'
     },
@@ -62,8 +62,8 @@ export default defineNuxtConfig({
                 code: 'en-GB',
                 name: 'English',
                 iso: 'en-GB',
-                dir: "ltr",
-                file: 'en.json',
+                dir: 'ltr',
+                file: 'en.json'
             }
         ],
         lazy: true,
