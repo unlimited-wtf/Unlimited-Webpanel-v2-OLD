@@ -28,6 +28,14 @@
         }
     }
 
+    &font {
+        color: $font !important;
+    }
+
+    &font-highlighted {
+        color: $font-highlighted !important;
+    }
+
     // size
     &landing-subtitle {
         font-size: 20px;

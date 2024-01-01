@@ -13,7 +13,7 @@
             class="col-12 col-md-6 flex content-center"
         >
             <!-- card -->
-            <q-card v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }" class="bg2">
+            <q-card v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }" class="bg-background2">
                 <!-- title -->
                 <q-card-section>
                     <div class="q-pt-lg">

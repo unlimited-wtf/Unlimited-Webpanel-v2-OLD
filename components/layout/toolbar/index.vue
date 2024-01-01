@@ -1,7 +1,7 @@
 import { set } from 'nuxt/dist/app/compat/capi';
 <template>
-    <q-toolbar class="q-py-sm q-px-lg bg2">
-        <q-btn round dense flat icon="menu" @click="toggleLeftDrawer" />
+    <q-toolbar class="q-py-sm q-px-lg bg-background2 rounded-borders">
+        <q-btn round dense flat icon="mdi-menu" @click="toggleLeftDrawer" />
 
         <q-space />
 
@@ -9,7 +9,7 @@ import { set } from 'nuxt/dist/app/compat/capi';
             <q-btn dense round flat icon="o_notifications">
                 <q-badge rounded color="red" floating transparent> 4 </q-badge>
 
-                <q-menu square :offset="[0, 25]" class="bg2" transition-show="jump-down" transition-hide="jump-up">
+                <q-menu square :offset="[0, 25]" class="bg-background2" transition-show="jump-down" transition-hide="jump-up">
                     <q-list style="max-width: 350px">
                         <q-item class="items-center">
                             <q-item-section>
@@ -54,7 +54,7 @@ import { set } from 'nuxt/dist/app/compat/capi';
                 <q-avatar>
                     <img :src="data.user.image" />
                 </q-avatar>
-                <q-menu square :offset="[0, 20]" class="bg2" fit transition-show="jump-down" transition-hide="jump-up">
+                <q-menu square :offset="[0, 20]" class="bg-background2" fit transition-show="jump-down" transition-hide="jump-up">
                     <q-list>
                         <q-item class="q-my-sm">
                             <q-item-section side top>
