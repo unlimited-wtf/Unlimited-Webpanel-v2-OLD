@@ -1,7 +1,7 @@
 import { set } from 'nuxt/dist/app/compat/capi';
 <template>
     <q-toolbar class="q-py-sm q-px-lg bg-background2 rounded-borders">
-        <q-btn round dense flat icon="mdi-menu" @click="toggleLeftDrawer" />
+        <q-btn round dense flat icon="las la-bars" @click="toggleLeftDrawer" />
 
         <q-space />
 
