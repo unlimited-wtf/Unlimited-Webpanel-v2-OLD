@@ -1,11 +1,9 @@
 <template>
-    <div>
-      Moin Users
-    </div>
+    <div>Moin Users</div>
 </template>
 
 <script setup>
 definePageMeta({
-    layout: 'Layout-Vertical',
+    layout: 'ucp'
 });
 </script>
