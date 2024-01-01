@@ -1,8 +1,14 @@
 {
     "welcome": "Welcome",
 
+    "error": {
+        "back": "Back To Home",
+        "pageNotFound": "Page not found",
+        "pageNotFoundText": "The page you are looking for does not exist."
+    },
+
     "navigation": {
-        "titles": { "test": "Test" }
+        "titles": { "dashboard": "Dashboard", "users": "Users" }
     },
 
     "landing": {
