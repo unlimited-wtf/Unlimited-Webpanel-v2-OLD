@@ -1,12 +1,12 @@
 import { createMongoAbility } from '@casl/ability';
 import { abilitiesPlugin } from '@casl/vue';
-import { actions, subjects } from '~/shared/permissions';
+import { Actions, Subjects } from '~/shared/permissions';
 
 import type { ForcedSubject, MongoAbility } from '@casl/ability';
 
 export type Abilities = [
-    (typeof actions)[number],
-    (typeof subjects)[number] | ForcedSubject<Exclude<(typeof subjects)[number], 'all'>>
+    keyof typeof Actions,
+    keyof typeof Subjects | ForcedSubject<Exclude<keyof typeof Subjects, 'all'>>
 ];
 
 export type AppAbility = MongoAbility<Abilities>;

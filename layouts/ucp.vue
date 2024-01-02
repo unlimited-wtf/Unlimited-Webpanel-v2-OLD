@@ -1,11 +1,13 @@
 <template>
     <q-layout view="lHh LpR lff">
+                    <!-- topbar toolbar -->
         <q-header bordered class="q-pa-md bg-transparent">
+
             <LayoutToolbar />
         </q-header>
 
+        <!-- drawer content -->
         <q-drawer dark show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg-background2">
-            <!-- drawer content -->
             <div class="row items-center q-mb-md">
                 <q-avatar size="100px">
                     <q-img fit="contain" src="/logo.png" :ratio="16 / 9" spinner-color="primary" spinner-size="82px" />
@@ -19,7 +21,6 @@
             </div>
 
             <q-list class="q-px-md q-gutter-xs">
-                <!-- @vue-skip Tell Volar VSC Extension to stfu - ts things -->
                 <component
                     v-for="(item, index) in navigation"
                     :is="resolveUcpNavMenuItemComponent(item)"
@@ -29,14 +30,17 @@
             </q-list>
         </q-drawer>
 
+        <!-- actual page -->
         <q-page-container>
             <q-page class="q-pa-md">
                 <slot></slot>
             </q-page>
         </q-page-container>
 
+        <!-- footer -->
         <LayoutFooter />
 
+        <!-- settings sticky button on the right -->
         <q-page-sticky position="right">
             <q-btn
                 class="q-pa-sm"
@@ -50,8 +54,7 @@
     </q-layout>
 </template>
 
-<script setup lang="ts">
-import type { SubjectRawRule, MongoQuery } from '@casl/ability';
+<script setup>
 import { ability } from '~/plugins/ability.client';
 import { colors } from 'quasar';
 const config = useRuntimeConfig();
@@ -66,9 +69,7 @@ if (status.value === 'authenticated') {
         server: false
     });
 
-    watch(permissions, (newPermissions) => {
-        ability.update(newPermissions as SubjectRawRule<string, never, MongoQuery>[]);
-    });
+    watch(permissions, (newPermissions) => ability.update(newPermissions));
 }
 </script>
 
