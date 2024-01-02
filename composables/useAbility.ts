@@ -11,14 +11,14 @@ export const useAbility = () => {
         return ability ? ability.can(action as any, subject as any) || (data.value as any).isMaster : false;
     };
 
-    const canViewUcpNavMenuLink = (item: NavigationItem) => can(item.action, item.subject);
+    const canViewUcpNavMenuLink = (item: NavigationItem) => can(item.action ?? '', item.subject ?? '');
 
     const canViewUcpNavMenuGroup = (item: NavigationGroup) => {
-        return item.children?.some((i) => can(i.action, i.subject));
+        return item.children?.some((i) => can(i.action ?? '', i.subject ?? ''));
     };
 
     const canViewUcpNavMenuHeader = (item: NavigationHeader) => {
-        return item.children?.some((i) => can(i.action, i.subject));
+        return item.children?.some((i) => can(i.action ?? '', i.subject ?? ''));
     };
 
     return {
