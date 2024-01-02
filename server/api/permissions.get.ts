@@ -4,6 +4,7 @@ import { UserSession } from './auth/[...]';
 
 export default defineEventHandler(async (event) => {
     // toDo: Funktion sicherer machen und Defaults zurückgeben
+    // toDo: Adjust to role with JSON permissions
 
     const session = (await getServerSession(event)) as UserSession | null;
 
