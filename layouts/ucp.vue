@@ -4,22 +4,26 @@
             <LayoutToolbar />
         </q-header>
 
-        <q-drawer dark show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg2">
+        <q-drawer dark show-if-above v-model="leftDrawerOpen" side="left" bordered class="bg-background2">
             <!-- drawer content -->
-            <div class="row items-center">
+            <div class="row items-center q-mb-md">
                 <q-avatar size="100px">
                     <q-img fit="contain" src="/logo.png" :ratio="16 / 9" spinner-color="primary" spinner-size="82px" />
                 </q-avatar>
-                <div class="text-primary row justify-center">{{ config.public.serverName }}</div>
+                <div
+                    :style="{ color: lighten('font', 85) }"
+                    class="text-weight-bolder text-uppercase row justify-center wrap"
+                >
+                    {{ config.public.serverName }}
+                </div>
             </div>
 
-            <q-separator spaced inset />
-
-            <q-list>
+            <q-list class="q-px-md q-gutter-xs">
+                <!-- @vue-skip Tell Volar VSC Extension to stfu - ts things -->
                 <component
+                    v-for="(item, index) in navigation"
                     :is="resolveUcpNavMenuItemComponent(item)"
-                    v-for="item in navigation"
-                    :key="item.header || item.title"
+                    :key="`navitem-${index}`"
                     :item="item"
                 />
             </q-list>
@@ -32,21 +36,30 @@
         </q-page-container>
 
         <LayoutFooter />
+
+        <q-page-sticky position="right">
+            <q-btn
+                class="q-pa-sm"
+                dense
+                size="md"
+                icon="las la-cog"
+                color="primary"
+                style="border-radius: 10px 0 0 10px"
+            />
+        </q-page-sticky>
     </q-layout>
 </template>
 
 <script setup lang="ts">
-import type { NavigationItem } from '@/composables/useNavigation';
 import type { SubjectRawRule, MongoQuery } from '@casl/ability';
 import { ability } from '~/plugins/ability.client';
+import { colors } from 'quasar';
 const config = useRuntimeConfig();
+const { resolveUcpNavMenuItemComponent } = useUtils();
 const { leftDrawerOpen } = useLayout();
 const { navigation } = useNavigation();
 const { status } = useAuth();
-
-const UcpNavMenuLink = resolveComponent('LayoutUcpNavMenuLink');
-const UcpNavMenuGroup = resolveComponent('LayoutUcpNavMenuGroup');
-const UcpNavMenuHeader = resolveComponent('LayoutUcpNavMenuHeader');
+const { lighten } = colors;
 
 if (status.value === 'authenticated') {
     const { pending: permsPending, data: permissions } = useLazyFetch('/api/permissions', {
@@ -57,13 +70,6 @@ if (status.value === 'authenticated') {
         ability.update(newPermissions as SubjectRawRule<string, never, MongoQuery>[]);
     });
 }
-
-const resolveUcpNavMenuItemComponent = (item: NavigationItem) => {
-    if (item.header) return UcpNavMenuHeader;
-    if (item.children) return UcpNavMenuGroup;
-
-    return UcpNavMenuLink;
-};
 </script>
 
 <style lang="scss" scoped>

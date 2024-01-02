@@ -8,7 +8,26 @@
     },
 
     "navigation": {
-        "titles": { "dashboard": "Dashboard", "users": "Users" }
+        "titles": {
+            "dashboard": "Dashboard",
+            "whitelist": "Whitelist",
+            "mycharacters": "My Characters",
+            "characters": "Characters",
+            "vehicles": "Vehicles",
+            "stashes": "Stashes",
+            "logs": "Logs",
+            "playerlogs": "Player Logs",
+            "gamelogs": "Game Logs",
+            "map": "Map",
+            "livemap": "Live Map",
+            "waypoints": "Waypoints",
+            "roles": "Roles"
+        },
+        "headers": {
+            "support": "Support",
+            "development": "Development",
+            "administration": "Administration"
+        }
     },
 
     "landing": {
