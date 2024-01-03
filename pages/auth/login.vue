@@ -13,12 +13,12 @@
             class="col-12 col-md-6 flex content-center"
         >
             <!-- card -->
-            <q-card v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }" class="bg2">
+            <q-card v-bind:style="$q.screen.lt.sm ? { width: '80%' } : { width: '50%' }" class="bg-background2 q-pa-md">
                 <!-- title -->
                 <q-card-section>
                     <div class="q-pt-lg">
-                        <div class="col text-h6 text-center flex justify-center">
-                            <div class="text-h4 text-uppercase text-primary q-my-none text-weight-regular">
+                        <div class="col text-center flex justify-center">
+                            <div class="text-h5 text-primary q-my-none text-weight-regular">
                                 {{ $t('login.title') }}
                             </div>
                         </div>
@@ -26,8 +26,8 @@
                 </q-card-section>
 
                 <!-- subtitle -->
-                <q-card-section>
-                    <div class="text-center text-subtitle1 text-secondary">
+                <q-card-section class="q-pt-none">
+                    <div class="text-center">
                         {{ $t('login.subtitle') }}
                     </div>
                 </q-card-section>
@@ -63,6 +63,7 @@ const { signIn } = useAuth();
 
 <style lang="scss" scoped>
 * {
-    font-family: $font-montserrat;
+    font-family: $font-public-sans;
+    color: $font;
 }
 </style>

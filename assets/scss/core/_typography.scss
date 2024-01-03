@@ -4,6 +4,22 @@
         color: $unlimited !important;
     }
 
+    &font {
+        color: $font !important;
+    }
+
+    &font-secondary {
+        color: $font-secondary !important;
+    }
+
+    &font-highlighted {
+        color: $font-highlighted !important;
+    }
+
+    &medium-emphasis {
+        color: rgba($on-background, $medium-emphasis-opacity) !important;
+    }
+
     &landing-header {
         font-family: $font-drukcyr-medium;
         font-size: 96px;

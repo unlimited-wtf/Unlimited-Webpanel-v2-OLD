@@ -34,7 +34,7 @@ $sizes: (
 $font-drukcyr-medium: 'DrukCyr-Medium';
 $font-gilroy-medium: 'Gilroy-Medium';
 $font-gilroy-bold: 'Gilroy-Bold';
-$font-montserrat: 'Montserrat';
+$font-public-sans: 'Public Sans';
 
 // colors
 $unlimited: #7367f0 !default;
@@ -42,8 +42,13 @@ $unlimited: #7367f0 !default;
 $primary: #7367f0 !default;
 $secondary: #ffffff !default;
 
+$font: #d0d4f1ad !default;
+$font-secondary: #d0d4f16b !default;
+$font-highlighted: #ffffff !default;
 $background: #25293c !default;
 $background2: #2e3248 !default;
+$border: #d0d4f129 !default;
+$on-background: #d0d4f1 !default;
 
 $accent: #7367f0 !default;
 $positive: #4caf50 !default;
@@ -58,3 +63,6 @@ $orange: #ffa573 !default;
 $blue: #73cdff !default;
 $green: #86ff73 !default;
 $red: #ff7373 !default;
+
+// opacity
+$medium-emphasis-opacity: 0.58 !default;

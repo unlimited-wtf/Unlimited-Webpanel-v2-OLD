@@ -42,7 +42,14 @@ export default defineNuxtConfig({
             ]
         }
     },
-    modules: ['magic-regexp/nuxt', '@nuxtjs/i18n', '@sidebase/nuxt-auth', 'nuxt-quasar-ui', '@fullpage/nuxt-fullpage'],
+    modules: [
+        'magic-regexp/nuxt',
+        '@nuxtjs/i18n',
+        '@sidebase/nuxt-auth',
+        'nuxt-quasar-ui',
+        '@fullpage/nuxt-fullpage',
+        '@pinia/nuxt'
+    ],
     imports: {
         dirs: ['./stores']
     },
@@ -52,6 +59,7 @@ export default defineNuxtConfig({
         '@Server': fileURLToPath(new URL('./server', import.meta.url))
     },
     runtimeConfig: {
+        isPreview: process.env.IS_PREVIEW,
         apiBaseUrl: process.env.API_BASE_URL,
         accessToken: process.env.ACCESS_TOKEN,
         discordMasterId: process.env.DISCORD_MASTER_ID,
@@ -68,21 +76,31 @@ export default defineNuxtConfig({
     quasar: {
         plugins: ['Notify', 'Dialog'],
         extras: {
-            fontIcons: ['material-icons', 'material-icons-outlined', 'fontawesome-v6']
+            fontIcons: ['material-icons', 'material-icons-outlined', 'fontawesome-v6', 'mdi-v7', 'line-awesome']
         },
         sassVariables: 'assets/scss/template.scss'
     },
     i18n: {
         locales: [
             {
-                code: 'en',
-                file: 'en.js',
-                name: 'English'
+                code: 'en-GB',
+                name: 'English',
+                iso: 'en-GB',
+                dir: 'ltr',
+                file: 'en.json'
             }
         ],
         lazy: true,
         langDir: 'lang/',
-        defaultLocale: 'en'
+        detectBrowserLanguage: false,
+        defaultLocale: 'en-GB'
     },
-    auth: { baseURL: process.env.AUTH_ORIGIN, globalAppMiddleware: true }
+    auth: {
+        baseURL: process.env.AUTH_ORIGIN,
+        globalAppMiddleware: true,
+        session: {
+            enableRefreshPeriodically: false,
+            enableRefreshOnWindowFocus: false
+        }
+    }
 });

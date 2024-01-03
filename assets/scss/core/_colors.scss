@@ -2,8 +2,6 @@
     --unlimited: #{$unlimited};
     --primary: #{$primary};
     --secondary: #{$secondary};
-    --background: #{$background};
-    --background2: #{$background2};
     --accent: #{$accent};
     --positive: #{$positive};
     --negative: #{$negative};
@@ -16,12 +14,18 @@
     --blue: #{$blue};
     --green: #{$green};
     --red: #{$red};
+
+    --q-font: #{$font};
+    --q-font-secondary: #{$font-secondary};
+    --q-font-highlighted: #{$font-highlighted};
+    --q-background: #{$background};
+    --q-background2: #{$background2};
 }
 
-.bg {
+.bg-background {
     background-color: $background !important;
 }
 
-.bg2 {
+.bg-background2 {
     background-color: $background2 !important;
 }

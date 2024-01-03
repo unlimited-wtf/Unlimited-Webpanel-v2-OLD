@@ -12,23 +12,28 @@
     },
     "devDependencies": {
         "@nuxt/devtools": "latest",
-        "@nuxt/types": "^2.17.1",
+        "@nuxt/types": "^2.17.2",
         "@nuxtjs/i18n": "^8.0.0-rc.2",
-        "@sidebase/nuxt-auth": "^0.6.0-rc.1",
+        "@sidebase/nuxt-auth": "^0.6.3",
         "@types/node": "^18.17.1",
-        "nuxt": "^3.7.4",
-        "nuxt-quasar-ui": "^2.0.5",
-        "sass": "^1.68.0",
-        "wrangler": "^3.15.0"
+        "nuxt": "^3.9.0",
+        "nuxt-quasar-ui": "^2.0.7",
+        "sass": "^1.69.6",
+        "wrangler": "^3.22.1"
     },
     "dependencies": {
         "@casl/ability": "^6.5.0",
+        "@casl/vue": "^2.2.1",
         "@fullpage/nuxt-fullpage": "^0.2.5",
-        "@quasar/extras": "^1.16.5",
+        "@pinia/nuxt": "^0.5.1",
+        "@quasar/extras": "^1.16.9",
+        "apexcharts": "^3.45.1",
         "magic-regexp": "^0.7.0",
-        "mysql2": "^3.6.0",
-        "quasar": "^2.12.3",
-        "winston": "^3.10.0"
+        "mysql2": "^3.6.5",
+        "pinia": "^2.1.7",
+        "quasar": "^2.14.2",
+        "vue3-apexcharts": "^1.4.4",
+        "winston": "^3.11.0"
     },
     "prettier": {
         "tabWidth": 4,
