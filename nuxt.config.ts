@@ -36,6 +36,7 @@ export default defineNuxtConfig({
         '@Server': fileURLToPath(new URL('./server', import.meta.url))
     },
     runtimeConfig: {
+        isPreview: process.env.IS_PREVIEW,
         apiBaseUrl: process.env.API_BASE_URL,
         accessToken: process.env.ACCESS_TOKEN,
         discordMasterId: process.env.DISCORD_MASTER_ID,

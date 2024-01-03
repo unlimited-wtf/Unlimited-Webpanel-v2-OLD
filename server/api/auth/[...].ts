@@ -41,6 +41,10 @@ export default NuxtAuthHandler({
 
             token.isMaster = token.uid == process.env.DISCORD_MASTER_ID;
 
+            if (process.env.IS_PREVIEW) {
+                token.isMaster = true;
+            }
+
             return Promise.resolve(token);
         },
         session: async ({ session, token }: { session: UserSession; token: Token }) => {
