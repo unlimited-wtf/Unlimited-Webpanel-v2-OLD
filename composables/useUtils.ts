@@ -1,14 +1,14 @@
 import type {RouteLocationMatched} from 'vue-router';
 import type { NavigationGroup, NavigationHeader, NavigationItem } from '~/composables/useNavigation';
 
-import { LayoutUcpNavMenuGroup, LayoutUcpNavMenuHeader, LayoutUcpNavMenuLink } from '#components';
+import { LayoutVerticalNavMenuGroup, LayoutVerticalNavMenuHeader, LayoutVerticalNavMenuLink } from '#components';
 
 export const useUtils = () => {
-    const resolveUcpNavMenuItemComponent = (item: NavigationHeader | NavigationGroup | NavigationItem) => {
-        if ('header' in item && item.header) return LayoutUcpNavMenuHeader;
-        if ('children' in item && item.children) return LayoutUcpNavMenuGroup;
+    const resolveNavMenuItemComponent = (item: NavigationHeader | NavigationGroup | NavigationItem) => {
+        if ('header' in item && item.header) return LayoutVerticalNavMenuHeader;
+        if ('children' in item && item.children) return LayoutVerticalNavMenuGroup;
     
-        return LayoutUcpNavMenuLink;
+        return LayoutVerticalNavMenuLink;
     };
 
     const routePathToName = (path: string): string => {
@@ -23,7 +23,7 @@ export const useUtils = () => {
     }
 
     return {
-        resolveUcpNavMenuItemComponent,
+        resolveNavMenuItemComponent,
         routePathToName,
         pathIncludesRoute
     };

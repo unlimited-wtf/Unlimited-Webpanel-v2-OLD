@@ -40,12 +40,12 @@ export const useNavigation = () => {
             icon: 'las la-id-card'
         },
         {
-            title: t('navigation.titles.mycharacters'),
+            title: t('navigation.titles.characters'),
             route: 'ucp-characters',
             icon: 'las la-users'
         },
         {
-            title: t('navigation.titles.mytickets'),
+            title: t('navigation.titles.tickets'),
             route: 'ucp-tickets',
             icon: 'las la-life-ring'
         },
@@ -61,11 +61,18 @@ export const useNavigation = () => {
             ]
         },
         {
+            title: t('navigation.titles.dashboard'),
+            action: Actions.Delete,
+            subject: Subjects.Test,
+            icon: 'o_dashboard',
+            route: 'acp-support-dashboard'
+        },
+        {
             title: t('navigation.titles.tickets'),
             action: Actions.Delete,
             subject: Subjects.Test,
             icon: 'las la-life-ring',
-            route: 'ucp-support-tickets'
+            route: 'acp-support-tickets'
         },
         {
             title: t('navigation.titles.whitelist'),
@@ -75,13 +82,13 @@ export const useNavigation = () => {
                     title: t('navigation.titles.applications'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-whitelist-applications'
+                    route: 'acp-support-whitelist-applications'
                 },
                 {
                     title: t('navigation.titles.questions'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-whitelist-questions'
+                    route: 'acp-support-whitelist-questions'
                 }
             ]
         },
@@ -93,13 +100,13 @@ export const useNavigation = () => {
                     title: t('navigation.titles.livemap'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-map-livemap'
+                    route: 'acp-support-map-livemap'
                 },
                 {
                     title: t('navigation.titles.waypoints'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-map-waypoints'
+                    route: 'acp-support-map-waypoints'
                 }
             ]
         },
@@ -108,21 +115,21 @@ export const useNavigation = () => {
             action: Actions.Delete,
             subject: Subjects.Test,
             icon: 'las la-walking',
-            route: 'ucp-support-characters'
+            route: 'acp-support-characters'
         },
         {
             title: t('navigation.titles.vehicles'),
             action: Actions.Delete,
             subject: Subjects.Test,
             icon: 'las la-car',
-            route: 'ucp-support-vehicles'
+            route: 'acp-support-vehicles'
         },
         {
             title: t('navigation.titles.stashes'),
             action: Actions.Delete,
             subject: Subjects.Test,
             icon: 'las la-boxes',
-            route: 'ucp-support-stashes'
+            route: 'acp-support-stashes'
         },
         {
             title: t('navigation.titles.logs'),
@@ -132,13 +139,13 @@ export const useNavigation = () => {
                     title: t('navigation.titles.playerlogs'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-logs-player'
+                    route: 'acp-support-logs-player'
                 },
                 {
                     title: t('navigation.titles.gamelogs'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-logs-game'
+                    route: 'acp-support-logs-game'
                 }
             ]
         },
@@ -161,19 +168,19 @@ export const useNavigation = () => {
                     title: t('navigation.titles.items'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-development-core-items'
+                    route: 'acp-development-core-items'
                 },
                 {
                     title: t('navigation.titles.jobs'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-development-core-jobs'
+                    route: 'acp-development-core-jobs'
                 },
                 {
                     title: t('navigation.titles.gangs'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-development-core-gangs'
+                    route: 'acp-development-core-gangs'
                 }
             ]
         },
@@ -181,14 +188,14 @@ export const useNavigation = () => {
             title: t('navigation.titles.triggers'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            route: 'ucp-development-triggers',
+            route: 'acp-development-triggers',
             icon: 'las la-project-diagram'
         },
         {
             title: t('navigation.titles.doors'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            route: 'ucp-development-doors',
+            route: 'acp-development-doors',
             icon: 'las la-door-open'
         },
 
@@ -206,21 +213,21 @@ export const useNavigation = () => {
             title: t('navigation.titles.users'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            route: 'ucp-administration-users',
+            route: 'acp-administration-users',
             icon: 'las la-user'
         },
         {
             title: t('navigation.titles.roles'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            route: 'ucp-administration-roles',
+            route: 'acp-administration-roles',
             icon: 'las la-theater-masks'
         },
         {
             title: t('navigation.titles.configuration'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            route: 'ucp-administration-configuration',
+            route: 'acp-administration-configuration',
             icon: 'las la-cog'
         }
     ];

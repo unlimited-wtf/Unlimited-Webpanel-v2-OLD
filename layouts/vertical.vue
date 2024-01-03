@@ -21,7 +21,7 @@
             <q-list class="q-px-md q-gutter-xs">
                 <component
                     v-for="(item, index) in navigation"
-                    :is="resolveUcpNavMenuItemComponent(item)"
+                    :is="resolveNavMenuItemComponent(item)"
                     :key="`navitem-${index}`"
                     :item="item"
                 />
@@ -56,7 +56,7 @@
 import { ability } from '~/plugins/ability.client';
 import { colors } from 'quasar';
 const config = useRuntimeConfig();
-const { resolveUcpNavMenuItemComponent } = useUtils();
+const { resolveNavMenuItemComponent } = useUtils();
 const { leftDrawerOpen } = useLayout();
 const { navigation } = useNavigation();
 const { status } = useAuth();

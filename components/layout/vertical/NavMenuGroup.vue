@@ -1,6 +1,6 @@
 <template>
     <q-expansion-item
-        v-if="canViewUcpNavMenuGroup(props.item)"
+        v-if="canViewNavMenuGroup(props.item)"
         dense
         group="ucp-nav-menu"
         :header-class="`rounded-borders text-font q-py-sm ${toggleState ? 'opened-expansion-item' : ''}`"
@@ -17,7 +17,7 @@
         </template>
 
         <div class="q-gutter-xs q-mt-xs">
-            <LayoutUcpNavMenuLink
+            <LayoutVerticalNavMenuLink
                 v-for="(child, index) in item.children"
                 :key="`navgroupitem-${index}`"
                 :item="{ ...child, icon: 'far fa-circle' }"
@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import type { NavigationGroup } from '@/composables/useNavigation';
-const { canViewUcpNavMenuGroup } = useAbility();
+const { canViewNavMenuGroup } = useAbility();
 
 const toggleState = ref(false);
 
