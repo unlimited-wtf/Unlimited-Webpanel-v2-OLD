@@ -1,6 +1,6 @@
 <template>
     <q-card class="bg-background2 rounded-borders no-shadow">
-        Characters
+        Items
     </q-card>
 </template>
 

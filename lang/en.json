@@ -5,7 +5,6 @@
         "titles": {
             "dashboard": "Dashboard",
             "whitelist": "Whitelist",
-            "mycharacters": "My Characters",
             "characters": "Characters",
             "vehicles": "Vehicles",
             "stashes": "Stashes",
@@ -27,7 +26,6 @@
             "triggers": "Triggers",
             "doors": "Doors",
             "configuration": "Configuration",
-            "mytickets": "My Tickets",
             "tickets": "Tickets"
         },
         "headers": {

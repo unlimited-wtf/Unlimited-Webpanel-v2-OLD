@@ -1,6 +1,6 @@
 <template>
     <q-item
-        v-if="canViewUcpNavMenuLink(props.item)"
+        v-if="canViewNavMenuLink(props.item)"
         clickable
         v-ripple
         :to="localeRoute({ name: props.item.route })"
@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import type { NavigationItem } from '@/composables/useNavigation';
-const { canViewUcpNavMenuLink } = useAbility();
+const { canViewNavMenuLink } = useAbility();
 const { pathIncludesRoute } = useUtils();
 const localeRoute = useLocaleRoute();
 const route = useRoute();

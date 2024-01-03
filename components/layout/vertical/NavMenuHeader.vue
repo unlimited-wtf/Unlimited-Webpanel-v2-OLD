@@ -3,7 +3,7 @@
         class="q-mt-md text-uppercase text-font-secondary"
         style="font-size: 12px"
         header
-        v-if="canViewUcpNavMenuHeader(item)"
+        v-if="canViewNavMenuHeader(item)"
     >
         {{ item.header }}
     </q-item-label>
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import type { NavigationHeader } from '@/composables/useNavigation';
-const { canViewUcpNavMenuHeader } = useAbility();
+const { canViewNavMenuHeader } = useAbility();
 
 const props = defineProps<{
     item: NavigationHeader;

@@ -1,11 +1,11 @@
 <template>
     <q-card class="bg-background2 rounded-borders no-shadow">
-        Items
+        Users
     </q-card>
 </template>
 
 <script setup>
 definePageMeta({
-    layout: 'ucp'
+    layout: 'vertical'
 });
 </script>

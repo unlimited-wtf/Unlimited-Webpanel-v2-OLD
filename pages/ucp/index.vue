@@ -36,7 +36,7 @@
 
 <script setup>
 definePageMeta({
-    layout: 'ucp'
+    layout: 'vertical'
 });
 
 const { data } = useAuth();

@@ -11,20 +11,20 @@ export const useAbility = () => {
         return ability ? ability.can(action as any, subject as any) || (data.value as any).isMaster : false;
     };
 
-    const canViewUcpNavMenuLink = (item: NavigationItem) => can(item.action ?? '', item.subject ?? '');
+    const canViewNavMenuLink = (item: NavigationItem) => can(item.action ?? '', item.subject ?? '');
 
-    const canViewUcpNavMenuGroup = (item: NavigationGroup) => {
+    const canViewNavMenuGroup = (item: NavigationGroup) => {
         return item.children?.some((i) => can(i.action ?? '', i.subject ?? ''));
     };
 
-    const canViewUcpNavMenuHeader = (item: NavigationHeader) => {
+    const canViewNavMenuHeader = (item: NavigationHeader) => {
         return item.children?.some((i) => can(i.action ?? '', i.subject ?? ''));
     };
 
     return {
         can,
-        canViewUcpNavMenuLink,
-        canViewUcpNavMenuGroup,
-        canViewUcpNavMenuHeader
+        canViewNavMenuLink,
+        canViewNavMenuGroup,
+        canViewNavMenuHeader
     };
 };

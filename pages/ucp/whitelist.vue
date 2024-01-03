@@ -6,6 +6,6 @@
 
 <script setup>
 definePageMeta({
-    layout: 'ucp'
+    layout: 'vertical'
 });
 </script>
