@@ -114,7 +114,7 @@ export const useNavigation = () => {
             title: t('navigation.titles.characters'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            icon: 'las la-walking',
+            icon: 'las la-users',
             route: 'acp-support-characters'
         },
         {
