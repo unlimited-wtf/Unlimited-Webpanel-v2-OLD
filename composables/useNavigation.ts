@@ -44,6 +44,11 @@ export const useNavigation = () => {
             route: 'ucp-characters',
             icon: 'las la-users'
         },
+        {
+            title: t('navigation.titles.mytickets'),
+            route: 'ucp-tickets',
+            icon: 'las la-life-ring'
+        },
 
         // Support section
         {
@@ -56,22 +61,45 @@ export const useNavigation = () => {
             ]
         },
         {
-            title: t('navigation.titles.map'),
+            title: t('navigation.titles.tickets'),
             action: Actions.Delete,
             subject: Subjects.Test,
+            icon: 'las la-life-ring',
+            route: 'ucp-support-tickets'
+        },
+        {
+            title: t('navigation.titles.whitelist'),
+            icon: 'las la-id-card',
+            children: [
+                {
+                    title: t('navigation.titles.applications'),
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
+                    route: 'ucp-support-whitelist-applications'
+                },
+                {
+                    title: t('navigation.titles.questions'),
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
+                    route: 'ucp-support-whitelist-questions'
+                }
+            ]
+        },
+        {
+            title: t('navigation.titles.map'),
             icon: 'o_location_on',
             children: [
                 {
                     title: t('navigation.titles.livemap'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-liveemap'
+                    route: 'ucp-support-map-livemap'
                 },
                 {
                     title: t('navigation.titles.waypoints'),
                     action: Actions.Delete,
                     subject: Subjects.Test,
-                    route: 'ucp-support-waypoints'
+                    route: 'ucp-support-map-waypoints'
                 }
             ]
         },
@@ -93,13 +121,11 @@ export const useNavigation = () => {
             title: t('navigation.titles.stashes'),
             action: Actions.Delete,
             subject: Subjects.Test,
-            icon: 'las la-archive',
+            icon: 'las la-boxes',
             route: 'ucp-support-stashes'
         },
         {
             title: t('navigation.titles.logs'),
-            action: Actions.Delete,
-            subject: Subjects.Test,
             icon: 'las la-file',
             children: [
                 {
@@ -127,6 +153,44 @@ export const useNavigation = () => {
                 }
             ]
         },
+        {
+            title: t('navigation.titles.core'),
+            icon: 'las la-stream',
+            children: [
+                {
+                    title: t('navigation.titles.items'),
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
+                    route: 'ucp-development-core-items'
+                },
+                {
+                    title: t('navigation.titles.jobs'),
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
+                    route: 'ucp-development-core-jobs'
+                },
+                {
+                    title: t('navigation.titles.gangs'),
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
+                    route: 'ucp-development-core-gangs'
+                }
+            ]
+        },
+        {
+            title: t('navigation.titles.triggers'),
+            action: Actions.Delete,
+            subject: Subjects.Test,
+            route: 'ucp-development-triggers',
+            icon: 'las la-project-diagram'
+        },
+        {
+            title: t('navigation.titles.doors'),
+            action: Actions.Delete,
+            subject: Subjects.Test,
+            route: 'ucp-development-doors',
+            icon: 'las la-door-open'
+        },
 
         // Administration section
         {
@@ -139,12 +203,26 @@ export const useNavigation = () => {
             ]
         },
         {
+            title: t('navigation.titles.users'),
+            action: Actions.Delete,
+            subject: Subjects.Test,
+            route: 'ucp-administration-users',
+            icon: 'las la-user'
+        },
+        {
             title: t('navigation.titles.roles'),
             action: Actions.Delete,
             subject: Subjects.Test,
             route: 'ucp-administration-roles',
             icon: 'las la-theater-masks'
         },
+        {
+            title: t('navigation.titles.configuration'),
+            action: Actions.Delete,
+            subject: Subjects.Test,
+            route: 'ucp-administration-configuration',
+            icon: 'las la-cog'
+        }
     ];
 
     return {

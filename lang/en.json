@@ -1,12 +1,6 @@
 {
     "welcome": "Welcome",
 
-    "error": {
-        "back": "Back To Home",
-        "pageNotFound": "Page not found",
-        "pageNotFoundText": "The page you are looking for does not exist."
-    },
-
     "navigation": {
         "titles": {
             "dashboard": "Dashboard",
@@ -21,7 +15,20 @@
             "map": "Map",
             "livemap": "Live Map",
             "waypoints": "Waypoints",
-            "roles": "Roles"
+            "roles": "Roles",
+            "applications": "Applications",
+            "questions": "Questions",
+            "settings": "Settings",
+            "users": "Users",
+            "core": "Core",
+            "items": "Items",
+            "jobs": "Jobs",
+            "gangs": "Gangs",
+            "triggers": "Triggers",
+            "doors": "Doors",
+            "configuration": "Configuration",
+            "mytickets": "My Tickets",
+            "tickets": "Tickets"
         },
         "headers": {
             "support": "Support",
@@ -99,8 +106,16 @@
         }
     },
 
+    "error": {
+        "back": "Back To Home",
+        "pageNotFound": "Page not found",
+        "pageNotFoundText": "The page you are looking for does not exist.",
+        "notAuthorized": "You are not authorized!",
+        "notAuthorizedText": "You do not have permission to view this page."
+    },
+
     "login": {
-        "title": "Welcome to Unlimited",
+        "title": "Welcome to Unlimited!👋🏻",
         "subtitle": "We are using discord to authenticate. Click the buttom below to start authentication.",
         "btn": "Login with Discord"
     }

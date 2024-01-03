@@ -47,6 +47,8 @@ $font-secondary: #d0d4f16b !default;
 $font-highlighted: #ffffff !default;
 $background: #25293c !default;
 $background2: #2e3248 !default;
+$border: #d0d4f129 !default;
+$on-background: #d0d4f1 !default;
 
 $accent: #7367f0 !default;
 $positive: #4caf50 !default;
@@ -61,3 +63,6 @@ $orange: #ffa573 !default;
 $blue: #73cdff !default;
 $green: #86ff73 !default;
 $red: #ff7373 !default;
+
+// opacity
+$medium-emphasis-opacity: 0.58 !default;

@@ -1,8 +1,7 @@
 <template>
     <q-layout view="lHh LpR lff">
-                    <!-- topbar toolbar -->
+        <!-- topbar toolbar -->
         <q-header bordered class="q-pa-md bg-transparent">
-
             <LayoutToolbar />
         </q-header>
 
@@ -13,8 +12,7 @@
                     <q-img fit="contain" src="/logo.png" :ratio="16 / 9" spinner-color="primary" spinner-size="82px" />
                 </q-avatar>
                 <div
-                    :style="{ color: lighten('font', 85) }"
-                    class="text-weight-bolder text-uppercase row justify-center wrap"
+                    class="text-weight-bolder text-uppercase row justify-center wrap server-name"
                 >
                     {{ config.public.serverName }}
                 </div>
@@ -40,8 +38,8 @@
         <!-- footer -->
         <LayoutFooter />
 
-        <!-- settings sticky button on the right -->
-        <q-page-sticky position="right">
+        <!-- sticky button on the right -->
+        <!-- <q-page-sticky position="right">
             <q-btn
                 class="q-pa-sm"
                 dense
@@ -50,7 +48,7 @@
                 color="primary"
                 style="border-radius: 10px 0 0 10px"
             />
-        </q-page-sticky>
+        </q-page-sticky> -->
     </q-layout>
 </template>
 
@@ -79,4 +77,10 @@ if (status.value === 'authenticated') {
     color: $font;
     font-size: 1rem;
 }
+
+.server-name {
+    background: linear-gradient(to right,lighten($primary, 10) 0%, lighten($primary, 40) 17.92%, $primary 100%);
+    background-clip: text;
+}
+
 </style>
