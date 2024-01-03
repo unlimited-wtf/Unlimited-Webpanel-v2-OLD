@@ -17,4 +17,18 @@ useHead({
     height: 100%;
     overflow: hidden;
 }
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.5s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+[v-cloak] {
+  display: none;
+}
 </style>
