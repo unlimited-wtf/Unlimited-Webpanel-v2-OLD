@@ -14,11 +14,12 @@ export default async (event: H3Event, url: string) => {
         const response = await $fetch.raw(url, {
             // @ts-ignore
             method,
-            baseURL: `${config.apiBaseUrl}/unlimited-api/`,
+            baseURL: `${config.apiBaseUrl}/unlimited-api`,
             headers: {
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
+                'Content-Length': headers['content-length'],
                 authorization: `${config.accessToken}`
-            },
+            } as HeadersInit,
             body: { ...body }
         });
 
@@ -31,8 +32,6 @@ export default async (event: H3Event, url: string) => {
 
         return response._data;
     } catch (error: any) {
-        console.error(error);
-
         return createError({
             statusCode: error.response.status,
             statusText: error.message
