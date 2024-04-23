@@ -32,6 +32,8 @@
         "mysql2": "^3.6.5",
         "pinia": "^2.1.7",
         "quasar": "^2.14.2",
+        "socket.io": "^4.7.5",
+        "socket.io-client": "^4.7.5",
         "vue3-apexcharts": "^1.4.4",
         "winston": "^3.11.0"
     },
