@@ -1,5 +1,12 @@
 import { createError, readBody, appendHeader, H3Event } from 'h3';
 
+/**
+ * Makes a request to the game API using the provided event and URL.
+ * @param event - The event object containing the request details.
+ * @param url - The URL to make the request to.
+ * @returns A Promise that resolves to the response data from the API.
+ * @throws An error if the `runtimeConfig.apiBaseUrl` configuration is missing or if there is an error making the request.
+ */
 export default async (event: H3Event, url: string) => {
     const config = useRuntimeConfig();
 
