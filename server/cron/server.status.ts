@@ -1,6 +1,9 @@
 import { defineCronHandler } from '#nuxt/cron';
+import { Server } from 'http';
 import { useLogger } from '~/server/utils/useLogger';
 import { GameServerStatus } from '~/shared/types/game';
+import { io } from '../plugins/socket.io';
+import { log } from 'console';
 
 const { logServerInfo } = useLogger();
 
@@ -29,12 +32,25 @@ export default defineCronHandler(
                 method: 'GET'
             });
 
+            // Save old status to compare
+            const tmpStatus = ServerStatus.status;
+
             // Update server status
             ServerStatus.status = 'online';
             ServerStatus.players = data.clients;
             ServerStatus.maxPlayers = Number(data.sv_maxclients);
 
-            logServerInfo(`Server Status: ${ServerStatus.status} - Players: ${ServerStatus.players} / ${ServerStatus.maxPlayers}`);
+            logServerInfo(
+                `Server Status: ${ServerStatus.status} - Players: ${ServerStatus.players} / ${ServerStatus.maxPlayers}`
+            );
+
+            // Update server status on clients if changed
+            if (tmpStatus !== ServerStatus.status) {
+                logServerInfo('Server Status changed - Update Clients ...');
+
+                // Emit server status to clients
+                io.emit('update:server:status', ServerStatus);
+            }
         } catch (error: any) {
             // Reset server status
             ServerStatus.status = 'offline';

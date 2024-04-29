@@ -6,6 +6,7 @@ import { IncomingMessage, ServerResponse } from 'http';
 import { H3Event } from 'h3';
 import { getServerSession } from '#auth';
 import type { Session } from 'next-auth';
+import { ServerStatus } from '../cron/server.status';
 
 interface ExtendedIncomingMessage extends IncomingMessage {
     nitroEvent: H3Event | null;
@@ -62,11 +63,8 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
         // Bind the users DiscordId to the socket
         socket.data.uid = socket.handshake.query.uid;
 
-        console.log('A user connected');
-
-        socket.on('disconnect', () => {
-            console.log('A user disconnected');
-        });
+        // Inform the client of the server status
+        socket.emit('update:server:status', ServerStatus);
     });
 
     nitroApp.router.use(
