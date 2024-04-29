@@ -32,7 +32,7 @@ export default defineCronHandler(
             // Update server status
             ServerStatus.status = 'online';
             ServerStatus.players = data.clients;
-            ServerStatus.maxPlayers = data.sv_maxclients;
+            ServerStatus.maxPlayers = Number(data.sv_maxclients);
 
             logServerInfo(`Server Status: ${ServerStatus.status} - Players: ${ServerStatus.players} / ${ServerStatus.maxPlayers}`);
         } catch (error: any) {
