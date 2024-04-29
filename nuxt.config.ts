@@ -26,7 +26,8 @@ export default defineNuxtConfig({
         '@sidebase/nuxt-auth',
         'nuxt-quasar-ui',
         '@fullpage/nuxt-fullpage',
-        '@pinia/nuxt'
+        '@pinia/nuxt',
+        'nuxt-cron'
     ],
     imports: {
         dirs: ['./stores']

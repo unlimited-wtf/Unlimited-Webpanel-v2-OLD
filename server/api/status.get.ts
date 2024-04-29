@@ -1,8 +1,9 @@
-export default defineEventHandler(async (event) => {
-    const config = useRuntimeConfig(event);
+import { ServerStatus } from '../cron/server.status';
 
-    // toDo: Fetch dynamic data from nuxt and not game server
-    return await $fetch(`${config.apiBaseUrl}/dynamic.json`, {
-        method: 'GET'
-    });
-});
+// Cache the server status for 2 minutes and return it from the "cache" instead of the FiveM-Server
+export default defineCachedEventHandler(
+    () => {
+        return ServerStatus;
+    },
+    { maxAge: 60 * 2 /* 2 minute */ }
+);
