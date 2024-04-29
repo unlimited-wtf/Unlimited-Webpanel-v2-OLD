@@ -34,7 +34,7 @@
                         {{
                             getStatus !== 'online' && !pending
                                 ? $t('landing.sections.logo.serverOffline')
-                                : $t('landing.sections.logo.playersOnline')
+                                : pending ? $t('landing.sections.logo.pendingStatus') : $t('landing.sections.logo.playersOnline')
                         }}
                     </div>
                 </div>
