@@ -1,5 +1,5 @@
 import { Actions, Subjects } from '~/shared/permissions';
-import MYSQL from '../database';
+import MYSQL from '../db';
 
 export const checkPermission = async (
     discordId: string,

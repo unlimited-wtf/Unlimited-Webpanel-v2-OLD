@@ -1,15 +1,18 @@
 import type { NitroApp } from 'nitropack';
 import { Server as Engine } from 'engine.io';
-import { Server, type ServerOptions } from 'socket.io';
+import { Server, type ServerOptions, Socket } from 'socket.io';
 import { defineEventHandler } from 'h3';
 import { IncomingMessage, ServerResponse } from 'http';
 import { H3Event } from 'h3';
 import { getServerSession } from '#auth';
-import { UserSession } from '../api/auth/[...]';
+import type { Session } from 'next-auth';
 
 interface ExtendedIncomingMessage extends IncomingMessage {
-    nitroEvent: H3Event;
-    _query: { sid: string };
+    nitroEvent: H3Event | null;
+    _query: {
+        uid: string;
+        sid: string;
+    };
 }
 
 const options: Partial<ServerOptions> = {
@@ -27,23 +30,38 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
     io.engine.use(async (req: ExtendedIncomingMessage, res: ServerResponse, next: (err?: Error) => void) => {
         const isHandshake = req._query.sid === undefined;
 
-        // Skip if it's not a handshake
+        // Skip middleware if it's not a handshake
         if (!isHandshake) {
             return next();
         }
 
-        // Check if the user is authenticated on the handshake
-        const session: UserSession | null = await getServerSession(req.nitroEvent)
+        // Check if nitroEvent is present
+        if (!req.nitroEvent) {
+            // Unauthorized
+            return next(new Error('Unauthorized'));
+        }
+
+        // Check if the user is authenticated on handshake
+        const session: Session | null = await getServerSession(req.nitroEvent);
         if (!session || !session.user) {
             // Unauthorized
             return next(new Error('Unauthorized'));
         }
 
+        // Clean up
+        req.nitroEvent = null;
+
+        // Add the user discordId to the handshake query
+        req._query.uid = session.uid;
+
         // Authorized
         next();
     });
 
-    io.on('connection', async (socket) => {
+    io.on('connection', async (socket: Socket) => {
+        // Bind the users DiscordId to the socket
+        socket.data.uid = socket.handshake.query.uid;
+
         console.log('A user connected');
 
         socket.on('disconnect', () => {

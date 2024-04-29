@@ -1,12 +1,12 @@
-import MYSQL from '../database';
+import MYSQL from '../db';
 import { getServerSession } from '#auth';
-import { UserSession } from './auth/[...]';
+import type { Session } from 'next-auth';
 
 export default defineEventHandler(async (event) => {
     // toDo: Funktion sicherer machen und Defaults zurückgeben
     // toDo: Adjust to role with JSON permissions
 
-    const session = (await getServerSession(event)) as UserSession | null;
+    const session = (await getServerSession(event)) as Session | null;
 
     if (!session) return [];
 

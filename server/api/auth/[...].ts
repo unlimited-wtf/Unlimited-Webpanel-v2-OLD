@@ -3,20 +3,6 @@ import type { User, Session } from 'next-auth';
 import type { JWT } from 'next-auth/jwt';
 import DiscordProvider from 'next-auth/providers/discord';
 
-export interface UserSession extends Session {
-    isMaster?: boolean;
-    uid?: string;
-}
-
-export interface Token extends JWT {
-    isMaster?: boolean;
-    uid?: string;
-}
-
-export interface DiscordProfile extends User {
-    id: string;
-}
-
 const scopes = ['identify'].join(' ');
 
 export default NuxtAuthHandler({
@@ -33,7 +19,7 @@ export default NuxtAuthHandler({
         })
     ],
     callbacks: {
-        async jwt({ token, user }: { token: Token; user: DiscordProfile }) {
+        async jwt({ token, user }: { token: JWT; user: User }) {
             const isSignIn = user ? true : false;
             if (isSignIn) {
                 token.uid = user.id;
@@ -47,7 +33,7 @@ export default NuxtAuthHandler({
 
             return Promise.resolve(token);
         },
-        session: async ({ session, token }: { session: UserSession; token: Token }) => {
+        session: async ({ session, token }: { session: Session; token: JWT }) => {
             session.isMaster = token.isMaster;
             session.uid = token.uid;
 

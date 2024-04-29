@@ -47,14 +47,22 @@ const logger = winston.createLogger({
     transports: transports
 });
 
-export function logServerError(err: any, message: string) {
-    logger.log('error', message, err);
-}
+export const useLogger = () => {
+    const logServerError = (err: any, message: string) => {
+        logger.log('error', message, err);
+    };
 
-export function logServerWarn(message: string) {
-    logger.log('warn', message);
-}
+    const logServerWarn = (message: string) => {
+        logger.log('warn', message);
+    };
 
-export function logServerInfo(message: string) {
-    logger.log('info', message);
-}
+    const logServerInfo = (message: string) => {
+        logger.log('info', message);
+    };
+
+    return {
+        logServerError,
+        logServerWarn,
+        logServerInfo
+    };
+};
