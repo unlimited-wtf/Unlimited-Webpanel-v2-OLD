@@ -1,13 +1,6 @@
 import { createError, readBody, appendHeader, H3Event } from 'h3';
 
-/**
- * Makes a request to the game API using the provided event and URL.
- * @param event - The event object containing the request details.
- * @param url - The URL to make the request to.
- * @returns A Promise that resolves to the response data from the API.
- * @throws An error if the `runtimeConfig.apiBaseUrl` configuration is missing or if there is an error making the request.
- */
-export async function useGameApi (event: H3Event, url: string) {
+export default async (event: H3Event, url: string) => {
     const config = useRuntimeConfig();
 
     if (!config.apiBaseUrl) {
@@ -21,12 +14,11 @@ export async function useGameApi (event: H3Event, url: string) {
         const response = await $fetch.raw(url, {
             // @ts-ignore
             method,
-            baseURL: `${config.apiBaseUrl}/unlimited-api`,
+            baseURL: `${config.apiBaseUrl}/unlimited-api/`,
             headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': headers['content-length'],
-                authorization: `${config.apiKey}`
-            } as HeadersInit,
+                'content-type': 'application/json',
+                authorization: `${config.accessToken}`
+            },
             body: { ...body }
         });
 
@@ -39,6 +31,8 @@ export async function useGameApi (event: H3Event, url: string) {
 
         return response._data;
     } catch (error: any) {
+        console.error(error);
+
         return createError({
             statusCode: error.response.status,
             statusText: error.message

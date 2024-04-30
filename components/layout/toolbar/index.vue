@@ -2,15 +2,7 @@ import { set } from 'nuxt/dist/app/compat/capi';
 <template>
     <q-toolbar class="q-py-sm q-px-lg bg-background2 rounded-borders">
         <q-btn round dense flat icon="las la-bars" @click="toggleLeftDrawer" />
-        <q-chip
-            class="q-ml-md"
-            :ripple="false"
-            :color="serverStatus.online ? 'positive' : 'negative'"
-            text-color="white"
-            dense
-            square
-            >{{ serverStatus.online ? $t('general.serverOnline') : $t('general.serverOffline') }}
-        </q-chip>
+
         <q-space />
 
         <div class="q-gutter-sm">
@@ -62,14 +54,7 @@ import { set } from 'nuxt/dist/app/compat/capi';
                 <q-avatar>
                     <img :src="data.user.image" />
                 </q-avatar>
-                <q-menu
-                    square
-                    :offset="[0, 20]"
-                    class="bg-background2"
-                    fit
-                    transition-show="jump-down"
-                    transition-hide="jump-up"
-                >
+                <q-menu square :offset="[0, 20]" class="bg-background2" fit transition-show="jump-down" transition-hide="jump-up">
                     <q-list>
                         <q-item class="q-my-sm">
                             <q-item-section side top>
@@ -99,9 +84,6 @@ import { set } from 'nuxt/dist/app/compat/capi';
 </template>
 
 <script setup>
-import { useServerStore } from '~/stores/server';
-const { serverStatus } = useServerStore();
-
 const { signOut, data } = useAuth();
 const { toggleLeftDrawer } = useLayout();
 const config = useRuntimeConfig();
