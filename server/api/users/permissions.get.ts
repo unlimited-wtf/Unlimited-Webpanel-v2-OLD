@@ -5,7 +5,7 @@ import { usePermissions } from '~/server/utils/usePermissions';
 const { getPermissions } = usePermissions();
 
 export default defineEventHandler(async (event) => {
-    const session = (await getServerSession(event)) as Session | null;
+    const session: Session | null = await getServerSession(event);
 
     if (!session) return [];
 
