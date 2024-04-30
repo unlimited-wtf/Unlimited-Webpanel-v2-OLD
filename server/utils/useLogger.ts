@@ -33,7 +33,7 @@ export const timestamp = () => {
 };
 
 const logger = winston.createLogger({
-    level: 'info',
+    level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
     format: winston.format.combine(
         winston.format.colorize(),
         winston.format.label({
@@ -60,9 +60,14 @@ export const useLogger = () => {
         logger.log('info', message);
     };
 
+    const logDebugServerInfo = (message: string) => {
+        logger.log('debug', message);
+    }
+
     return {
         logServerError,
         logServerWarn,
-        logServerInfo
+        logServerInfo,
+        logDebugServerInfo
     };
 };
