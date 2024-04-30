@@ -2,20 +2,10 @@ import { NuxtAuthHandler } from '#auth';
 import type { User, Session } from 'next-auth';
 import type { JWT } from 'next-auth/jwt';
 import DiscordProvider from 'next-auth/providers/discord';
+import MYSQL from '~/server/db';
+import { usePermissions } from '~/server/utils/usePermissions'; 
 
-export interface UserSession extends Session {
-    isMaster?: boolean;
-    uid?: string;
-}
-
-export interface Token extends JWT {
-    isMaster?: boolean;
-    uid?: string;
-}
-
-export interface DiscordProfile extends User {
-    id: string;
-}
+const { getPermissions } = usePermissions();
 
 const scopes = ['identify'].join(' ');
 
@@ -33,21 +23,34 @@ export default NuxtAuthHandler({
         })
     ],
     callbacks: {
-        async jwt({ token, user }: { token: Token; user: DiscordProfile }) {
+        async jwt({ token, user }: { token: JWT; user: User }) {
             const isSignIn = user ? true : false;
             if (isSignIn) {
+                // Add discordId to token
                 token.uid = user.id;
+
+                // Insert/update user in users table
+                await MYSQL.query(
+                    'INSERT INTO unl_users (discordId, name) VALUES (?, ?) ON DUPLICATE KEY UPDATE discordId = ?, name = ?',
+                    [token.uid, user.name, token.uid, user.name]
+                );
             }
 
+            // Get the user's permissions and save to permissions cache
+            const permissions = await getPermissions(token.uid);
+            useStorage('permissions').setItem(token.uid, permissions);
+
+            // Is the user a master?
             token.isMaster = token.uid == process.env.DISCORD_MASTER_ID;
 
-            if (process.env.IS_PREVIEW) {
+            // Everyone is a master in preview mode (only needed for https://preview.unlimited.wtf)
+            if (process.env.IS_PREVIEW === 'true') {
                 token.isMaster = true;
             }
 
             return Promise.resolve(token);
         },
-        session: async ({ session, token }: { session: UserSession; token: Token }) => {
+        session: async ({ session, token }: { session: Session; token: JWT }) => {
             session.isMaster = token.isMaster;
             session.uid = token.uid;
 

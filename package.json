@@ -1,7 +1,7 @@
 {
     "name": "unlimited-website",
-    "author": "Marco Sendner",
-    "version": "1.0.0",
+    "author": "Unlimited.wtf - Renegade",
+    "version": "2.0.0-beta",
     "private": true,
     "scripts": {
         "build": "nuxt build",
@@ -11,29 +11,31 @@
         "postinstall": "nuxt prepare"
     },
     "devDependencies": {
-        "@nuxt/devtools": "latest",
-        "@nuxt/types": "^2.17.2",
-        "@nuxtjs/i18n": "^8.0.0-rc.2",
-        "@sidebase/nuxt-auth": "^0.6.3",
+        "@nuxt/devtools": "1.2.0",
+        "@nuxt/types": "^2.17.3",
+        "@nuxtjs/i18n": "^8.3.0",
+        "@sidebase/nuxt-auth": "^0.7.2",
         "@types/node": "^18.17.1",
-        "nuxt": "^3.9.0",
-        "nuxt-quasar-ui": "^2.0.7",
-        "sass": "^1.69.6",
-        "wrangler": "^3.22.1"
+        "nuxt": "^3.11.2",
+        "nuxt-cron": "^1.5.1",
+        "nuxt-quasar-ui": "^2.0.8",
+        "sass": "^1.75.0"
     },
     "dependencies": {
-        "@casl/ability": "^6.5.0",
-        "@casl/vue": "^2.2.1",
+        "@casl/ability": "^6.7.1",
+        "@casl/vue": "^2.2.2",
         "@fullpage/nuxt-fullpage": "^0.2.5",
         "@pinia/nuxt": "^0.5.1",
-        "@quasar/extras": "^1.16.9",
-        "apexcharts": "^3.45.1",
-        "magic-regexp": "^0.7.0",
+        "@quasar/extras": "^1.16.11",
+        "apexcharts": "^3.49.0",
+        "magic-regexp": "^0.8.0",
         "mysql2": "^3.6.5",
         "pinia": "^2.1.7",
-        "quasar": "^2.14.2",
-        "vue3-apexcharts": "^1.4.4",
-        "winston": "^3.11.0"
+        "quasar": "^2.15.4",
+        "socket.io": "^4.7.5",
+        "socket.io-client": "^4.7.5",
+        "vue3-apexcharts": "^1.5.2",
+        "winston": "^3.13.0"
     },
     "prettier": {
         "tabWidth": 4,
@@ -42,5 +44,8 @@
         "semi": true,
         "arrowParens": "always",
         "trailingComma": "none"
+    },
+    "overrides": {
+        "vue": "latest"
     }
 }

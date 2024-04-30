@@ -3,6 +3,12 @@ import { fileURLToPath } from 'url';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
+    nitro: { experimental: { websocket: true }, storage: {
+        permissions: {
+            driver: 'memory',
+            base: '.permissionsCache'
+        }
+    } },
     app: {
         pageTransition: { name: 'page', mode: 'out-in' },
         head: {
@@ -48,7 +54,8 @@ export default defineNuxtConfig({
         '@sidebase/nuxt-auth',
         'nuxt-quasar-ui',
         '@fullpage/nuxt-fullpage',
-        '@pinia/nuxt'
+        '@pinia/nuxt',
+        'nuxt-cron'
     ],
     imports: {
         dirs: ['./stores']
@@ -61,7 +68,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         isPreview: process.env.IS_PREVIEW,
         apiBaseUrl: process.env.API_BASE_URL,
-        accessToken: process.env.ACCESS_TOKEN,
+        apiKey: process.env.API_KEY,
         discordMasterId: process.env.DISCORD_MASTER_ID,
         mysqlConnectionString: process.env.MYSQL_CONNECTION_STRING,
 

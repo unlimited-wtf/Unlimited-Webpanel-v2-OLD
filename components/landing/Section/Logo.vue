@@ -28,13 +28,13 @@
                 <div class="box">
                     <div class="top">
                         <LandingOnlineDot :status="getStatus" />
-                        <div class="text">{{ players?.clients || 0 }}</div>
+                        <div class="text">{{ data?.players || 0 }}</div>
                     </div>
                     <div class="bottom text-uppercase">
                         {{
                             getStatus !== 'online' && !pending
                                 ? $t('landing.sections.logo.serverOffline')
-                                : $t('landing.sections.logo.playersOnline')
+                                : pending ? $t('landing.sections.logo.pendingStatus') : $t('landing.sections.logo.playersOnline')
                         }}
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                     {{
                         getStatus !== 'online' && !pending
                             ? 'Server offline'
-                            : `${players?.clients || 0} / ${players?.sv_maxclients || 124}`
+                            : `${data?.players || 0} / ${data?.maxPlayers || 32}`
                     }}
                 </LandingButton>
             </div>
@@ -80,14 +80,14 @@ const joinFiveM = () => {
     window.open(`fivem://connect/${config.public.fivemJoinUrl}`);
 };
 
-const { data: players, pending, error, refresh } = await useLazyAsyncData('players', () => $fetch('/api/status'));
+const { data, pending, error, refresh } = useLazyFetch('/api/status', { server: false });
 
 const getStatus = computed(() => {
     if (pending.value) return 'pending';
 
     if (error.value) return 'offline';
 
-    return 'online';
+    return data.value.status;
 });
 
 let intervall = null;
@@ -219,7 +219,6 @@ onBeforeUnmount(() => {
 
             .logo {
                 filter: drop-shadow(0px 1.6px 100px $primary);
-                // background-image: url(../../../assets/imgs/logo/logo_traced.svg);
                 background-size: 80% auto;
                 background-repeat: no-repeat;
                 background-position: 50% 80%;
