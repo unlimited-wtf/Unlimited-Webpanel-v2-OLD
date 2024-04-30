@@ -35,18 +35,6 @@
 
         <!-- footer -->
         <LayoutFooter />
-
-        <!-- sticky button on the right -->
-        <!-- <q-page-sticky position="right">
-            <q-btn
-                class="q-pa-sm"
-                dense
-                size="md"
-                icon="las la-cog"
-                color="primary"
-                style="border-radius: 10px 0 0 10px"
-            />
-        </q-page-sticky> -->
     </q-layout>
 </template>
 
