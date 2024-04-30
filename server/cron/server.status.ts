@@ -23,15 +23,14 @@ export default defineCronHandler(
     'everyMinute',
     async () => {
         logDebugServerInfo('Checking Server Status ...');
+        // Save old status to compare
+        const tmpStatus = ServerStatus.status;
 
         try {
             // Check if server is online
             const data: GameServerResponse = await $fetch(`${config.apiBaseUrl}/dynamic.json`, {
                 method: 'GET'
             });
-
-            // Save old status to compare
-            const tmpStatus = ServerStatus.status;
 
             // Update server status
             ServerStatus.status = 'online';
@@ -41,14 +40,6 @@ export default defineCronHandler(
             logDebugServerInfo(
                 `Server Status: ${ServerStatus.status} - Players: ${ServerStatus.players} / ${ServerStatus.maxPlayers}`
             );
-
-            // Update server status on clients if changed
-            if (tmpStatus !== ServerStatus.status) {
-                logDebugServerInfo('Server Status changed - Update Clients ...');
-
-                // Emit server status to clients
-                io.emit('update:server:status', ServerStatus);
-            }
         } catch (error: any) {
             // Reset server status
             ServerStatus.status = 'offline';
@@ -56,6 +47,14 @@ export default defineCronHandler(
             ServerStatus.maxPlayers = 32;
 
             logDebugServerInfo(`Server Status: ${ServerStatus.status}`);
+        }
+
+        // Update server status on clients if changed
+        if (tmpStatus !== ServerStatus.status) {
+            logDebugServerInfo('Server Status changed - Update Clients ...');
+
+            // Emit server status to clients
+            io.emit('update:server:status', ServerStatus);
         }
     },
     { runOnInit: true }
