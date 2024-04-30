@@ -14,7 +14,7 @@ export const defineProtectedEventHandler = <T extends EventHandlerRequest, D>(
     defineEventHandler<T>(async (event) => {
         try {
             // Is the user authenticated?
-            const session: Session | null = (await getServerSession(event));
+            const session: Session | null = await getServerSession(event);
             if (!session) {
                 return createError({
                     statusCode: 401,
@@ -24,10 +24,11 @@ export const defineProtectedEventHandler = <T extends EventHandlerRequest, D>(
 
             // Get the user's permissions
             const storage = useStorage('permissions');
-            const permissions = await storage.getItem<Array<{ subject: Subjects; action: Actions }>>(session.uid) || [];
+            const permissions =
+                (await storage.getItem<Array<{ subject: Subjects; action: Actions }>>(session.uid)) || [];
 
             // Check permissions
-            const allowed = await hasPermission(permissions, subject, action);
+            const allowed = hasPermission(permissions, subject, action);
             if (!allowed && !session.isMaster) {
                 return createError({
                     statusCode: 403,
