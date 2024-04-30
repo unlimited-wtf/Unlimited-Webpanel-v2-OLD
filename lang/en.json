@@ -1,6 +1,9 @@
 {
     "welcome": "Welcome",
-
+    "general": {
+        "serverOnline": "Server online",
+        "serverOffline": "Server offline"
+    },
     "navigation": {
         "titles": {
             "dashboard": "Dashboard",
