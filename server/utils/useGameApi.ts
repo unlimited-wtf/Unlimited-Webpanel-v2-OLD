@@ -25,7 +25,7 @@ export async function useGameApi (event: H3Event, url: string) {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Length': headers['content-length'],
-                authorization: `${config.accessToken}`
+                authorization: `${config.apiKey}`
             } as HeadersInit,
             body: { ...body }
         });
