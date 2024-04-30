@@ -2,25 +2,25 @@
     font-family: $font-drukcyr-medium;
     font-style: normal;
     font-weight: 500;
-    src: url('~/assets/fonts/DrukCyr-Medium.ttf') format('truetype');
+    src: url('/fonts/DrukCyr-Medium.ttf') format('truetype');
 }
 
 @font-face {
     font-family: $font-gilroy-medium;
     font-style: normal;
     font-weight: 400;
-    src: url('@/assets/fonts/Gilroy-Medium.ttf') format('truetype');
+    src: url('/fonts/Gilroy-Medium.ttf') format('truetype');
 }
 @font-face {
     font-family: $font-gilroy-bold;
     font-style: normal;
     font-weight: normal;
-    src: url('@/assets/fonts/Gilroy-Bold.ttf') format('truetype');
+    src: url('/fonts/Gilroy-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: $font-public-sans;
     font-style: normal;
     font-weight: 400;
-    src: url('@/assets/fonts/PublicSans.ttf') format('truetype');
+    src: url('/fonts/PublicSans.ttf') format('truetype');
 }
