@@ -1,7 +1,7 @@
 <template>
     <div>
-        <component :is="resolverErrorComponent" />
         <ImagesBackgroundShape />
+        <component :is="resolverErrorComponent" />
     </div>
 </template>
 

@@ -219,7 +219,6 @@ onBeforeUnmount(() => {
 
             .logo {
                 filter: drop-shadow(0px 1.6px 100px $primary);
-                // background-image: url(../../../assets/imgs/logo/logo_traced.svg);
                 background-size: 80% auto;
                 background-repeat: no-repeat;
                 background-position: 50% 80%;
