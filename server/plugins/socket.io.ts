@@ -60,7 +60,7 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
     });
 
     io.on('connection', async (socket: Socket) => {
-        // Bind the users DiscordId to the socket
+        // Bind the users discordId to the socket
         socket.data.uid = socket.handshake.query.uid;
 
         // Inform the client of the server status
