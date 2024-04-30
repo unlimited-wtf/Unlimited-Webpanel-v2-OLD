@@ -1,7 +1,7 @@
 <template>
     <div>
-        <ImagesBackgroundShape />
         <component :is="resolverErrorComponent" />
+        <ImagesBackgroundShape />
     </div>
 </template>
 
@@ -12,6 +12,7 @@ const Error401 = resolveComponent('Error401');
 const Error404 = resolveComponent('Error404');
 
 const resolverErrorComponent = computed(() => {
+    console.log(error.value)
     switch (error.value?.statusCode) {
         case 401:
             return Error401;

@@ -1,7 +1,7 @@
-import { useGameApi } from '~/server/utils/useGameApi';
+import useGameApi from "../misc/useGameApi"
 
 export default defineEventHandler(async (event) => {
-    const query = getQuery(event);
+    const query = getQuery(event)
 
-    return await useGameApi(event, `/license/${query.discordId}`);
-});
+    return await useGameApi(event, `license/${query.discordId}`)
+})

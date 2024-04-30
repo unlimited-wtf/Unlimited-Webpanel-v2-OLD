@@ -1,8 +1,7 @@
 import { createPool, Pool } from 'mysql2/promise';
-import { useLogger } from '~/server/utils/useLogger';
+import { logServerError, logServerInfo } from '~/server/misc/log';
 
 function getDatabasePool(): Pool {
-    const { logServerError, logServerInfo } = useLogger();
     try {
         const config = useRuntimeConfig();
 

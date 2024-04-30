@@ -1,9 +1,6 @@
 {
     "welcome": "Welcome",
-    "general": {
-        "serverOnline": "Server online",
-        "serverOffline": "Server offline"
-    },
+
     "navigation": {
         "titles": {
             "dashboard": "Dashboard",
@@ -54,7 +51,6 @@
                 "serverSubtitle": "Discover a vibrant world full of possibilities and design your character according to your ideas.",
                 "playersOnline": "Players online",
                 "serverOffline": "Server offline",
-                "pendingStatus": "Pending",
                 "playNow": "Play now"
             },
             "about": {

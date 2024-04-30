@@ -11,7 +11,9 @@
                 <q-avatar size="100px">
                     <q-img fit="contain" src="/logo.png" :ratio="16 / 9" spinner-color="primary" spinner-size="82px" />
                 </q-avatar>
-                <div class="text-weight-bolder text-uppercase row justify-center wrap server-name">
+                <div
+                    class="text-weight-bolder text-uppercase row justify-center wrap server-name"
+                >
                     {{ config.public.serverName }}
                 </div>
             </div>
@@ -52,56 +54,21 @@
 
 <script setup>
 import { ability } from '~/plugins/ability.client';
-import { colors, useQuasar } from 'quasar';
-import { useServerStore } from '~/stores/server';
-import { useUserStore } from '~/stores/user';
+import { colors } from 'quasar';
 const config = useRuntimeConfig();
 const { resolveNavMenuItemComponent } = useUtils();
 const { leftDrawerOpen } = useLayout();
 const { navigation } = useNavigation();
 const { status } = useAuth();
 const { lighten } = colors;
-const socket = useSocket();
-const serverStore = useServerStore();
-const userStore = useUserStore();
-const $q = useQuasar();
-
-// Make sure to update the ability instance when the user's permissions change
-userStore.$onAction(({ name, after, store }) => {
-    if (name === 'setPermissions') {
-        after((result) => {
-            ability.update(store.permissions);
-        });
-    }
-}, true /* listen even if component was closed */);
 
 if (status.value === 'authenticated') {
-    const { pending: permsPending, data: permissions } = useLazyFetch('/api/users/permissions', {
+    const { pending: permsPending, data: permissions } = useLazyFetch('/api/permissions', {
         server: false
     });
 
-    watch(permissions, (newPermissions) => userStore.setPermissions(newPermissions));
+    watch(permissions, (newPermissions) => ability.update(newPermissions));
 }
-
-onMounted(() => {
-    socket.connect();
-
-    socket.on('update:server:status', (status) => {
-        serverStore.updateServerStatus(status);
-    });
-
-    socket.on('update:user:permissions', (permissions) => {
-        $q.notify({
-            message: 'Your permissions have been updated',
-            color: 'primary',
-            position: 'top',
-            icon: 'las la-check',
-            classes: 'text-font-highlighted',
-            timeout: 2500
-        });
-        userStore.setPermissions(JSON.parse(permissions));
-    });
-});
 </script>
 
 <style lang="scss" scoped>
@@ -112,7 +79,8 @@ onMounted(() => {
 }
 
 .server-name {
-    background: linear-gradient(to right, lighten($primary, 10) 0%, lighten($primary, 40) 17.92%, $primary 100%);
+    background: linear-gradient(to right,lighten($primary, 10) 0%, lighten($primary, 40) 17.92%, $primary 100%);
     background-clip: text;
 }
+
 </style>

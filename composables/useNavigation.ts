@@ -55,62 +55,22 @@ export const useNavigation = () => {
             header: t('navigation.headers.support'),
             children: [
                 {
-                    action: Actions.Read,
-                    subject: Subjects.SupportDashboard
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.SupportTickets
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.SupportWhitelistApplications
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.SupportWhitelistQuestions
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.MapLive
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.MapWaypoints
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.SupportCharacters
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.SupportVehicles
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.SupportStashes
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.LogsPlayer
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.LogsGame
+                    action: Actions.Delete,
+                    subject: Subjects.Test
                 }
             ]
         },
         {
             title: t('navigation.titles.dashboard'),
-            action: Actions.Read,
-            subject: Subjects.SupportDashboard,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             icon: 'o_dashboard',
             route: 'acp-support-dashboard'
         },
         {
             title: t('navigation.titles.tickets'),
-            action: Actions.Read,
-            subject: Subjects.SupportTickets,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             icon: 'las la-life-ring',
             route: 'acp-support-tickets'
         },
@@ -120,14 +80,14 @@ export const useNavigation = () => {
             children: [
                 {
                     title: t('navigation.titles.applications'),
-                    action: Actions.Read,
-                    subject: Subjects.SupportWhitelistApplications,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-support-whitelist-applications'
                 },
                 {
                     title: t('navigation.titles.questions'),
-                    action: Actions.Read,
-                    subject: Subjects.SupportWhitelistQuestions,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-support-whitelist-questions'
                 }
             ]
@@ -138,36 +98,36 @@ export const useNavigation = () => {
             children: [
                 {
                     title: t('navigation.titles.livemap'),
-                    action: Actions.Read,
-                    subject: Subjects.MapLive,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-support-map-livemap'
                 },
                 {
                     title: t('navigation.titles.waypoints'),
-                    action: Actions.Read,
-                    subject: Subjects.MapWaypoints,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-support-map-waypoints'
                 }
             ]
         },
         {
             title: t('navigation.titles.characters'),
-            action: Actions.Read,
-            subject: Subjects.SupportCharacters,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             icon: 'las la-users',
             route: 'acp-support-characters'
         },
         {
             title: t('navigation.titles.vehicles'),
-            action: Actions.Read,
-            subject: Subjects.SupportVehicles,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             icon: 'las la-car',
             route: 'acp-support-vehicles'
         },
         {
             title: t('navigation.titles.stashes'),
-            action: Actions.Read,
-            subject: Subjects.SupportStashes,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             icon: 'las la-boxes',
             route: 'acp-support-stashes'
         },
@@ -177,14 +137,14 @@ export const useNavigation = () => {
             children: [
                 {
                     title: t('navigation.titles.playerlogs'),
-                    action: Actions.Read,
-                    subject: Subjects.LogsPlayer,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-support-logs-player'
                 },
                 {
                     title: t('navigation.titles.gamelogs'),
-                    action: Actions.Read,
-                    subject: Subjects.LogsGame,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-support-logs-game'
                 }
             ]
@@ -195,16 +155,8 @@ export const useNavigation = () => {
             header: t('navigation.headers.development'),
             children: [
                 {
-                    action: Actions.Read,
-                    subject: Subjects.CoreItems
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.CoreJobs
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.CoreGangs
+                    action: Actions.Delete,
+                    subject: Subjects.Test
                 }
             ]
         },
@@ -214,35 +166,35 @@ export const useNavigation = () => {
             children: [
                 {
                     title: t('navigation.titles.items'),
-                    action: Actions.Read,
-                    subject: Subjects.CoreItems,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-development-core-items'
                 },
                 {
                     title: t('navigation.titles.jobs'),
-                    action: Actions.Read,
-                    subject: Subjects.CoreJobs,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-development-core-jobs'
                 },
                 {
                     title: t('navigation.titles.gangs'),
-                    action: Actions.Read,
-                    subject: Subjects.CoreGangs,
+                    action: Actions.Delete,
+                    subject: Subjects.Test,
                     route: 'acp-development-core-gangs'
                 }
             ]
         },
         {
             title: t('navigation.titles.triggers'),
-            action: Actions.Read,
-            subject: Subjects.Triggers,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             route: 'acp-development-triggers',
             icon: 'las la-project-diagram'
         },
         {
             title: t('navigation.titles.doors'),
-            action: Actions.Read,
-            subject: Subjects.Doors,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             route: 'acp-development-doors',
             icon: 'las la-door-open'
         },
@@ -252,37 +204,29 @@ export const useNavigation = () => {
             header: t('navigation.headers.administration'),
             children: [
                 {
-                    action: Actions.Read,
-                    subject: Subjects.Users
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.Roles
-                },
-                {
-                    action: Actions.Read,
-                    subject: Subjects.Configuration
+                    action: Actions.Delete,
+                    subject: Subjects.Test
                 }
             ]
         },
         {
             title: t('navigation.titles.users'),
-            action: Actions.Read,
-            subject: Subjects.Users,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             route: 'acp-administration-users',
             icon: 'las la-user'
         },
         {
             title: t('navigation.titles.roles'),
-            action: Actions.Read,
-            subject: Subjects.Roles,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             route: 'acp-administration-roles',
             icon: 'las la-theater-masks'
         },
         {
             title: t('navigation.titles.configuration'),
-            action: Actions.Read,
-            subject: Subjects.Configuration,
+            action: Actions.Delete,
+            subject: Subjects.Test,
             route: 'acp-administration-configuration',
             icon: 'las la-cog'
         }
