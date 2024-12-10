@@ -1,39 +1,4 @@
 # Unlimited Webpanel
 
-Look at the [Documentation](https://unlimited.wtf/docs/what-is-unlimited) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Old version with Quasar UI of the [v2](https://github.com/unlimited-wtf/Unlimited-Webpanel-v2). Not performant and effective as the new version. 
+Both got never released.
